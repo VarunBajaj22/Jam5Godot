@@ -23,4 +23,4 @@ func _on_Area_body_entered(body):
 	        $AudioStreamPlayer.play()
 	        $Area.hide();
 	        $Area/CollisionShape.hide()
-	        a=3;
+	        a=5;
