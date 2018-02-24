@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Floor.tscn" type="PackedScene" id=2]
@@ -7,12 +7,127 @@
 [ext_resource path="res://GoalPiece.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Falling.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Trap_Box.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Bullet.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Player.gd" type="Script" id=8]
+[ext_resource path="res://pasi/cr4.gd" type="Script" id=9]
+[ext_resource path="res://pasi/cr5.gd" type="Script" id=10]
+[ext_resource path="res://key1111.obj" type="ArrayMesh" id=11]
 
-[sub_resource type="BoxShape" id=1]
+[sub_resource type="BoxShape" id=3]
 
-extents = Vector3( 1, 1, 1 )
+extents = Vector3( 0.366197, 1, 1 )
+_sections_unfolded = [ "Resource" ]
+
+[sub_resource type="SpatialMaterial" id=4]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 0.96875, 1, 0, 1 )
+metallic = 0.5
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Albedo", "Metallic" ]
+
+[sub_resource type="CylinderMesh" id=5]
+
+top_radius = 1.0
+bottom_radius = 1.0
+height = 2.0
+radial_segments = 64
+rings = 4
+
+[sub_resource type="SpatialMaterial" id=6]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 0.96875, 1, 0, 1 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Albedo" ]
 
 [node name="Main" type="Spatial" index="0"]
 
@@ -20,7 +135,6 @@ script = ExtResource( 1 )
 
 [node name="Floor" parent="." index="0" instance=ExtResource( 2 )]
 
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Walls" parent="Floor" index="1" instance=ExtResource( 3 )]
@@ -54,6 +168,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Platform23" parent="Floor" index="7" instance=ExtResource( 2 )]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.357, 5.77375, -20.6989 )
 _sections_unfolded = [ "Transform" ]
 
@@ -269,7 +384,9 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Player" parent="." index="1" instance=ExtResource( 7 )]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.18646, 0 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Camera" type="Camera" parent="Player" index="2"]
@@ -317,12 +434,15 @@ directional_shadow_depth_range = 0
 directional_shadow_max_distance = 200.0
 _sections_unfolded = [ "Light", "Shadow" ]
 
-[node name="Trap_Box" parent="." index="3" instance=ExtResource( 8 )]
+[node name="Spatial3" type="Spatial" parent="." index="3"]
 
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -3.99038, 1.88024, 7.62449 )
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8829, 6.14988, 12.9048 )
+script = ExtResource( 9 )
 
-[node name="Area2" type="Area" parent="Trap_Box" index="2"]
+[node name="Area" type="Area" parent="Spatial3" index="0"]
 
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
 input_ray_pickable = false
 input_capture_on_drag = false
 space_override = 0
@@ -343,18 +463,2956 @@ reverb_bus_enable = false
 reverb_bus_name = "Master"
 reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="CollisionShape" type="CollisionShape" parent="Trap_Box/Area2" index="0"]
+[node name="CollisionShape" type="CollisionShape" parent="Spatial3/Area" index="0"]
 
-transform = Transform( 1, 0, 9.09197e-07, 0, 1, 0, -2.27299e-07, 0, 4, 0, 0, 3 )
-shape = SubResource( 1 )
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
 disabled = false
 _sections_unfolded = [ "Transform" ]
 
-[node name="Bullet2" parent="Trap_Box/Area2" index="1" instance=ExtResource( 9 )]
+[node name="MeshInstance" type="MeshInstance" parent="Spatial3/Area" index="1"]
 
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.15256e-07, 0, 3 )
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
-[connection signal="body_entered" from="Trap_Box/Area2" to="." method="_on_Area2_body_entered"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial3" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial35" type="Spatial" parent="." index="4"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.3468, 6.14988, 13.222 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial35" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial35/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial35/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial35" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial5" type="Spatial" parent="." index="5"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3594, 6.18318, 13.3872 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial5" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial5/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial5/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial5" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial34" type="Spatial" parent="." index="6"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.8232, 6.18318, 13.7044 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial34" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial34/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial34/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial34" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial6" type="Spatial" parent="." index="7"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3748, 6.1608, -4.32091 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial6" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial6/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial6/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial6" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial36" type="Spatial" parent="." index="8"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9386, 6.1608, -4.32091 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial36" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial36/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial36/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial36" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial7" type="Spatial" parent="." index="9"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.9315, 6.18176, -4.32007 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial7" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial7/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial7/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial7" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial37" type="Spatial" parent="." index="10"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.4954, 6.18176, -4.32007 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial37" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial37/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial37/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial37" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial8" type="Spatial" parent="." index="11"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1797, 6.23723, -4.46547 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial8" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial8/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial8/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial8" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial9" type="Spatial" parent="." index="12"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.7037, 5.95249, -3.51823 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial9" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial9/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial9/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial9" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial10" type="Spatial" parent="." index="13"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5396, 6.28329, -4.15127 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial10" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial10/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial10/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial10" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial11" type="Spatial" parent="." index="14"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.4392, 6.23256, 13.5102 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial11" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial11/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial11/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial11" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial12" type="Spatial" parent="." index="15"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2205, 6.26618, 13.7546 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial12" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial12/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial12/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial12" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial13" type="Spatial" parent="." index="16"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1231, 6.12593, 13.5584 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial13" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial13/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial13/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial13" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial14" type="Spatial" parent="." index="17"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.088, 6.12456, 13.4248 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial14" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial14/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial14/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial14" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial15" type="Spatial" parent="." index="18"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.30898, 1.5089, 5.03432 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial15" index="0"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial15/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial15/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -24.076, 10.7942, 29.4964 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial15" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial16" type="Spatial" parent="." index="19"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.30898, 1.5089, 5.03432 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial16" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial16/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial16/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial16" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial17" type="Spatial" parent="." index="20"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.30898, 1.5089, 5.03432 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial17" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial17/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial17/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial17" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial18" type="Spatial" parent="." index="21"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1427, 6, 12.8667 )
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area" type="Area" parent="Spatial18" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial18/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial18/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial18" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial40" type="Spatial" parent="." index="22"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5311, 6.30887, 12.8667 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial40" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial40/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial40/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial40" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial19" type="Spatial" parent="." index="23"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 6, 9.6296 )
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area" type="Area" parent="Spatial19" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial19/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial19/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial19" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial38" type="Spatial" parent="." index="24"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5357, 6.21445, 9.6296 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial38" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial38/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial38/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial38" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial20" type="Spatial" parent="." index="25"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1572, 6, 7.45146 )
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area" type="Area" parent="Spatial20" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial20/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial20/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial20" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial39" type="Spatial" parent="." index="26"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5455, 6.40451, 7.45146 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial39" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial39/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial39/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial39" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial21" type="Spatial" parent="." index="27"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.3211, 6, 0.27025 )
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area" type="Area" parent="Spatial21" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial21/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial21/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial21" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial41" type="Spatial" parent="." index="28"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.7094, 6.14594, 0.27025 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial41" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial41/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial41/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial41" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial22" type="Spatial" parent="." index="29"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.8019, 6, -1.71307 )
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area" type="Area" parent="Spatial22" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial22/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial22/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial22" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial42" type="Spatial" parent="." index="30"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.1903, 6.73188, -1.71307 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial42" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial42/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial42/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial42" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial23" type="Spatial" parent="." index="31"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1108, 6, 2.41182 )
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area" type="Area" parent="Spatial23" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial23/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial23/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial23" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial45" type="Spatial" parent="." index="32"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4992, 6.33757, 2.41182 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial45" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial45/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial45/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial45" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial24" type="Spatial" parent="." index="33"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19.1438, 6, 5.03432 )
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area" type="Area" parent="Spatial24" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial24/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial24/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial24" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial46" type="Spatial" parent="." index="34"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5322, 6.41098, 5.03432 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial46" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial46/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial46/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial46" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial25" type="Spatial" parent="." index="35"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.7905, 6, -4.0761 )
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area" type="Area" parent="Spatial25" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial25/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial25/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial25" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial43" type="Spatial" parent="." index="36"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -38.1789, 6.36051, -4.0761 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial43" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial43/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial43/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial43" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial26" type="Spatial" parent="." index="37"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.7556, 6, -4 )
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area" type="Area" parent="Spatial26" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial26/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial26/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial26" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial27" type="Spatial" parent="." index="38"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7988, 6, 5 )
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area" type="Area" parent="Spatial27" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial27/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial27/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial27" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial28" type="Spatial" parent="." index="39"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2362, 5.31869, 5 )
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area" type="Area" parent="Spatial28" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial28/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial28/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial28" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial29" type="Spatial" parent="." index="40"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4962, 4.63218, 5 )
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area" type="Area" parent="Spatial29" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial29/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial29/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial29" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial30" type="Spatial" parent="." index="41"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5744, 3.93912, 5 )
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area" type="Area" parent="Spatial30" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial30/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial30/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial30" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial31" type="Spatial" parent="." index="42"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8994, 3.22066, 5 )
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area" type="Area" parent="Spatial31" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial31/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial31/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial31" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial32" type="Spatial" parent="." index="43"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.48694, 2.57792, 5 )
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area" type="Area" parent="Spatial32" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial32/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial32/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial32" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial33" type="Spatial" parent="." index="44"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.87321, 2.09551, 5 )
+script = ExtResource( 9 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area" type="Area" parent="Spatial33" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial33/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial33/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 4 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 5 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial33" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial4" type="Spatial" parent="." index="45"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -21.2463, 1.5089, 5.03432 )
+script = ExtResource( 9 )
+
+[node name="Area" type="Area" parent="Spatial4" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Spatial4/Area" index="0"]
+
+transform = Transform( 9.13017, 0, 0, 0, 1.00584, 0, 0, 0, 0.438229, -12.7929, 12.6966, 21.944 )
+shape = SubResource( 3 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Spatial4/Area" index="1"]
+
+transform = Transform( -4.37114e-10, -0.01, 0, 0.01, -4.37114e-10, 0, 0, 0, 0.01, -12.6246, 10.2677, 22.0115 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = ExtResource( 11 )
+skeleton = NodePath("..")
+material/0 = SubResource( 6 )
+script = ExtResource( 10 )
+_sections_unfolded = [ "Geometry", "Transform", "material" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial4" index="1"]
+
+stream = null
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[connection signal="area_entered" from="Spatial3/Area" to="Spatial3" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial3/Area" to="Spatial3" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial35/Area" to="Spatial35" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial35/Area" to="Spatial35" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial5/Area" to="Spatial5" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial5/Area" to="Spatial5" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial34/Area" to="Spatial34" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial34/Area" to="Spatial34" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial6/Area" to="Spatial6" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial6/Area" to="Spatial6" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial36/Area" to="Spatial36" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial36/Area" to="Spatial36" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial7/Area" to="Spatial7" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial7/Area" to="Spatial7" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial37/Area" to="Spatial37" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial37/Area" to="Spatial37" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial8/Area" to="Spatial8" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial8/Area" to="Spatial8" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial9/Area" to="Spatial9" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial9/Area" to="Spatial9" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial10/Area" to="Spatial10" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial10/Area" to="Spatial10" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial11/Area" to="Spatial11" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial11/Area" to="Spatial11" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial12/Area" to="Spatial12" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial12/Area" to="Spatial12" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial13/Area" to="Spatial13" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial13/Area" to="Spatial13" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial14/Area" to="Spatial14" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial14/Area" to="Spatial14" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial15/Area" to="Spatial15" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial15/Area" to="Spatial15" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial16/Area" to="Spatial16" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial16/Area" to="Spatial16" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial17/Area" to="Spatial17" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial17/Area" to="Spatial17" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial18/Area" to="Spatial18" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial18/Area" to="Spatial18" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial40/Area" to="Spatial40" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial40/Area" to="Spatial40" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial19/Area" to="Spatial19" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial19/Area" to="Spatial19" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial38/Area" to="Spatial38" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial38/Area" to="Spatial38" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial20/Area" to="Spatial20" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial20/Area" to="Spatial20" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial39/Area" to="Spatial39" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial39/Area" to="Spatial39" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial21/Area" to="Spatial21" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial21/Area" to="Spatial21" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial41/Area" to="Spatial41" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial41/Area" to="Spatial41" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial22/Area" to="Spatial22" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial22/Area" to="Spatial22" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial42/Area" to="Spatial42" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial42/Area" to="Spatial42" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial23/Area" to="Spatial23" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial23/Area" to="Spatial23" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial45/Area" to="Spatial45" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial45/Area" to="Spatial45" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial24/Area" to="Spatial24" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial24/Area" to="Spatial24" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial46/Area" to="Spatial46" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial46/Area" to="Spatial46" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial25/Area" to="Spatial25" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial25/Area" to="Spatial25" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial43/Area" to="Spatial43" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial43/Area" to="Spatial43" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial26/Area" to="Spatial26" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial26/Area" to="Spatial26" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial27/Area" to="Spatial27" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial27/Area" to="Spatial27" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial28/Area" to="Spatial28" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial28/Area" to="Spatial28" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial29/Area" to="Spatial29" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial29/Area" to="Spatial29" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial30/Area" to="Spatial30" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial30/Area" to="Spatial30" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial31/Area" to="Spatial31" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial31/Area" to="Spatial31" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial32/Area" to="Spatial32" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial32/Area" to="Spatial32" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial33/Area" to="Spatial33" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial33/Area" to="Spatial33" method="_on_Area_body_entered"]
+
+[connection signal="area_entered" from="Spatial4/Area" to="Spatial4" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Spatial4/Area" to="Spatial4" method="_on_Area_body_entered"]
 
 
