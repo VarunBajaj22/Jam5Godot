@@ -1,0 +1,315 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Main.gd" type="Script" id=1]
+[ext_resource path="res://Floor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Walls.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Ramp.tscn" type="PackedScene" id=4]
+[ext_resource path="res://GoalPiece.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Falling.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Player.gd" type="Script" id=8]
+
+[node name="Main" type="Spatial" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="Floor" parent="." index="0" instance=ExtResource( 2 )]
+
+_sections_unfolded = [ "Transform" ]
+
+[node name="Walls" parent="Floor" index="1" instance=ExtResource( 3 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1, 0 )
+
+[node name="Walls2" parent="Floor" index="2" instance=ExtResource( 3 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Walls4" parent="Floor" index="3" instance=ExtResource( 3 )]
+
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, 9.50381 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Walls5" parent="Floor" index="4" instance=ExtResource( 3 )]
+
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 1, -9.52036 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Ramp" parent="Floor" index="5" instance=ExtResource( 4 )]
+
+transform = Transform( -5.64328e-08, 0.643298, 0.32293, -1.10998e-08, 0.864257, -0.13795, -1, -3.09086e-08, -8.4409e-09, -11.5364, 3.20782, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform" parent="Floor" index="6" instance=ExtResource( 2 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.3293, 5.77375, 0 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform23" parent="Floor" index="7" instance=ExtResource( 2 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -123.357, 5.77375, -20.6989 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="GoalPiece" parent="Floor/Platform23" index="1" instance=ExtResource( 5 )]
+
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -8.96699, 6.43224, 5.64371 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform2" parent="Floor" index="8" instance=ExtResource( 2 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.3293, 5.77375, -53.4571 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform6" parent="Floor" index="9" instance=ExtResource( 2 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.25, -86.8548, 20, -61.4169 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Platform7" parent="Floor" index="10" instance=ExtResource( 2 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.25, -86.8548, 20, -54.4595 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Platform8" parent="Floor" index="11" instance=ExtResource( 2 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 0.25, -86.8548, 20, -47.4904 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="Platform3" parent="Floor" index="12" instance=ExtResource( 2 )]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.3293, 5.77375, -127.442 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform9" parent="Floor" index="13" instance=ExtResource( 2 )]
+
+transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, -87.2463, 5.77375, -24.6617 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform15" parent="Floor" index="14" instance=ExtResource( 2 )]
+
+transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, -87.2463, 5.77375, -16.7189 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform11" parent="Floor" index="15" instance=ExtResource( 2 )]
+
+transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, -95.1953, 5.77375, -24.6617 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform20" parent="Floor" index="16" instance=ExtResource( 2 )]
+
+transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, -100, 5.77375, -24.6617 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform14" parent="Floor" index="17" instance=ExtResource( 2 )]
+
+transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, -95.1953, 5.77375, -16.7191 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform19" parent="Floor" index="18" instance=ExtResource( 2 )]
+
+transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, -100, 5.77375, -16.7191 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform21" parent="Floor" index="19" instance=ExtResource( 2 )]
+
+transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, -105, 5.77375, -16.7191 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform22" parent="Floor" index="20" instance=ExtResource( 2 )]
+
+transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, -110, 5.77375, -24.5973 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform10" parent="Floor" index="21" instance=ExtResource( 2 )]
+
+transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, -79.2826, 5.77375, -24.6617 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform16" parent="Floor" index="22" instance=ExtResource( 2 )]
+
+transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, -79.2826, 5.77375, -16.7295 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform12" parent="Floor" index="23" instance=ExtResource( 2 )]
+
+transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, -83.2139, 5.77375, -20.6855 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform18" parent="Floor" index="24" instance=ExtResource( 2 )]
+
+transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, -83.2139, 5.77375, -12.7319 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform13" parent="Floor" index="25" instance=ExtResource( 2 )]
+
+transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, -91.2041, 5.77375, -20.6855 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform17" parent="Floor" index="26" instance=ExtResource( 2 )]
+
+transform = Transform( 0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, -91.2041, 5.77375, -12.7295 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform4" parent="Floor" index="27" instance=ExtResource( 2 )]
+
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 1, -72.5886, 5.77375, -127.442 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="FallingBlock1" parent="Floor" index="28" instance=ExtResource( 6 )]
+
+transform = Transform( 2.37171, 0, 0, 0, 0.493243, 0, 0, 0, 10.0312, -80.0474, 5.8168, -127.522 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="FallingBlock4" parent="Floor" index="29" instance=ExtResource( 6 )]
+
+transform = Transform( 1.95714, 0, 0, 0, 0.493243, 0, 0, 0, 1.97473, -91.258, 5.77257, -24.6721 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="FallingBlock12" parent="Floor" index="30" instance=ExtResource( 6 )]
+
+transform = Transform( 1.95714, 0, 0, 0, 0.493243, 0, 0, 0, 1.97473, -105, 5.77375, -24.6802 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="FallingBlock13" parent="Floor" index="31" instance=ExtResource( 6 )]
+
+transform = Transform( 1.95714, 0, 0, 0, 0.493243, 0, 0, 0, 1.97473, -110, 5.77375, -16.6906 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="FallingBlock5" parent="Floor" index="32" instance=ExtResource( 6 )]
+
+transform = Transform( 1.95714, 0, 0, 0, 0.493243, 0, 0, 0, 1.97473, -91.2032, 5.7811, -16.7142 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="FallingBlock6" parent="Floor" index="33" instance=ExtResource( 6 )]
+
+transform = Transform( 1.95714, 0, 0, 0, 0.493243, 0, 0, 0, 1.97473, -83.2637, 5.77182, -16.7142 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="FallingBlock8" parent="Floor" index="34" instance=ExtResource( 6 )]
+
+transform = Transform( 1.95714, 0, 0, 0, 0.493243, 0, 0, 0, 1.97473, -87.244, 5.78485, -20.6814 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="FallingBlock11" parent="Floor" index="35" instance=ExtResource( 6 )]
+
+transform = Transform( 1.95714, 0, 0, 0, 0.493243, 0, 0, 0, 1.97473, -79.2378, 5.78485, -20.7054 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="FallingBlock9" parent="Floor" index="36" instance=ExtResource( 6 )]
+
+transform = Transform( 1.95714, 0, 0, 0, 0.493243, 0, 0, 0, 1.97473, -87.2156, 5.76728, -12.7137 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="FallingBlock10" parent="Floor" index="37" instance=ExtResource( 6 )]
+
+transform = Transform( 1.95714, 0, 0, 0, 0.493243, 0, 0, 0, 1.97473, -79.2673, 5.76728, -12.7607 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="FallingBlock7" parent="Floor" index="38" instance=ExtResource( 6 )]
+
+transform = Transform( 1.95714, 0, 0, 0, 0.493243, 0, 0, 0, 1.97473, -83.2637, 5.78089, -24.6709 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="FallingBlock2" parent="Floor" index="39" instance=ExtResource( 6 )]
+
+transform = Transform( -4.22851e-08, 0, 10, 0, 0.5, 0, -0.967371, 0, -4.37114e-07, -86.8633, 20.0131, -57.9055 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="FallingBlock3" parent="Floor" index="40" instance=ExtResource( 6 )]
+
+transform = Transform( -4.22851e-08, 0, 10, 0, 0.5, 0, -0.967371, 0, -4.37114e-07, -86.8633, 19.9906, -50.9945 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Platform5" parent="Floor" index="41" instance=ExtResource( 2 )]
+
+transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 1, -87.4691, 5.77375, -127.442 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="HorizontalMovingPlatform1" parent="Floor" index="42" instance=ExtResource( 2 )]
+
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -28.3293, 5.77375, -16.626 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="HorizontalMovingPlatform2" parent="Floor" index="43" instance=ExtResource( 2 )]
+
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -28.3293, 5.77375, -72.0687 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="VerticalMovingPlatform3" parent="Floor" index="44" instance=ExtResource( 2 )]
+
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -87.6576, 5.77375, -72.0687 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="HorizontalMovingPlatform3" parent="Floor" index="45" instance=ExtResource( 2 )]
+
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -28.3293, 5.77375, -110.3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="HorizontalMovingPlatform4" parent="Floor" index="46" instance=ExtResource( 2 )]
+
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -87.6576, 5.77375, -110.3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="VerticalMovingPlatform1" parent="Floor" index="47" instance=ExtResource( 2 )]
+
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -45.6188, 5.77375, -128.645 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="VerticalMovingPlatform2" parent="Floor" index="48" instance=ExtResource( 2 )]
+
+transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -59.5238, 5.77375, -128.645 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Player" parent="." index="1" instance=ExtResource( 7 )]
+
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.18646, 0 )
+script = ExtResource( 8 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Camera" type="Camera" parent="Player" index="2"]
+
+transform = Transform( -3.137e-08, -0.707107, 0.707107, -1, -1.74533e-08, -6.18172e-08, 5.60527e-08, -0.707107, -0.707107, 7.27745, 0.281141, -8.98074 )
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 70.0
+size = 1.0
+near = 0.05
+far = 100.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="." index="2"]
+
+transform = Transform( 0.0281251, -0.877852, 0.478105, 0.0515516, 0.478931, 0.876337, -0.998274, 0, 0.0587247, 7.81858, 11.7497, 0 )
+layers = 1
+light_color = Color( 1, 1, 1, 1 )
+light_energy = 0.5
+light_indirect_energy = 1.0
+light_negative = false
+light_specular = 0.5
+light_bake_mode = 1
+light_cull_mask = -1
+shadow_enabled = true
+shadow_color = Color( 0, 0, 0, 1 )
+shadow_bias = 0.1
+shadow_contact = 0.0
+shadow_reverse_cull_face = false
+editor_only = false
+directional_shadow_mode = 2
+directional_shadow_split_1 = 0.1
+directional_shadow_split_2 = 0.2
+directional_shadow_split_3 = 0.5
+directional_shadow_blend_splits = false
+directional_shadow_normal_bias = 0.8
+directional_shadow_bias_split_scale = 0.25
+directional_shadow_depth_range = 0
+directional_shadow_max_distance = 200.0
+_sections_unfolded = [ "Light", "Shadow" ]
+
+
