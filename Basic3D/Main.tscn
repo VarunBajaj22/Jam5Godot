@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Floor.tscn" type="PackedScene" id=2]
@@ -7,11 +7,13 @@
 [ext_resource path="res://GoalPiece.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Falling.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Player.gd" type="Script" id=8]
-[ext_resource path="res://pasi/cr4.gd" type="Script" id=9]
-[ext_resource path="res://pasi/cr5.gd" type="Script" id=10]
-[ext_resource path="res://super-mario-coin-sound.ogg" type="AudioStream" id=11]
-[ext_resource path="res://key1111.obj" type="ArrayMesh" id=12]
+[ext_resource path="res://pasi/cr4.gd" type="Script" id=8]
+[ext_resource path="res://pasi/cr5.gd" type="Script" id=9]
+[ext_resource path="res://super-mario-coin-sound.ogg" type="AudioStream" id=10]
+[ext_resource path="res://sgxcfnI.png" type="Texture" id=11]
+[ext_resource path="res://TkZm5eA.png" type="Texture" id=12]
+[ext_resource path="res://timebarreduce.gd" type="Script" id=13]
+[ext_resource path="res://key1111.obj" type="ArrayMesh" id=14]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -387,7 +389,6 @@ _sections_unfolded = [ "Transform" ]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 2.18646, 0 )
-script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Camera" type="Camera" parent="Player" index="2"]
@@ -438,7 +439,7 @@ _sections_unfolded = [ "Light", "Shadow" ]
 [node name="Spatial3" type="Spatial" parent="." index="3"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -20.8829, 6, 13 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial3" index="0"]
@@ -488,12 +489,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial3" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -503,7 +504,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial35" type="Spatial" parent="." index="4"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -34.3468, 6, 13 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial35" index="0"]
@@ -553,12 +554,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial35" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -568,7 +569,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial5" type="Spatial" parent="." index="5"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.3594, 6, 13 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial5" index="0"]
@@ -618,12 +619,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial5" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -633,7 +634,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial34" type="Spatial" parent="." index="6"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 6, 13 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial34" index="0"]
@@ -683,12 +684,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial34" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -698,7 +699,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial6" type="Spatial" parent="." index="7"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.3748, 6.1608, -4.32091 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 
 [node name="Area" type="Area" parent="Spatial6" index="0"]
 
@@ -747,12 +748,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial6" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -762,7 +763,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial36" type="Spatial" parent="." index="8"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -35.9386, 6.1608, -4.32091 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 
 [node name="Area" type="Area" parent="Spatial36" index="0"]
 
@@ -811,12 +812,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial36" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -826,7 +827,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial7" type="Spatial" parent="." index="9"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.9315, 6.18176, -4.32007 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 
 [node name="Area" type="Area" parent="Spatial7" index="0"]
 
@@ -875,12 +876,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial7" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -890,7 +891,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial37" type="Spatial" parent="." index="10"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.4954, 6.18176, -4.32007 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 
 [node name="Area" type="Area" parent="Spatial37" index="0"]
 
@@ -939,12 +940,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial37" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -954,7 +955,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial8" type="Spatial" parent="." index="11"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.1797, 6.23723, -4.46547 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 
 [node name="Area" type="Area" parent="Spatial8" index="0"]
 
@@ -1003,12 +1004,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial8" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -1018,7 +1019,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial9" type="Spatial" parent="." index="12"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -24.7037, 5.95249, -4.24363 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 
 [node name="Area" type="Area" parent="Spatial9" index="0"]
 
@@ -1067,12 +1068,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial9" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -1082,7 +1083,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial10" type="Spatial" parent="." index="13"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -22.5396, 6, -4.40765 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial10" index="0"]
@@ -1132,12 +1133,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial10" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -1147,7 +1148,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial11" type="Spatial" parent="." index="14"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.4392, 6, 13 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial11" index="0"]
@@ -1197,12 +1198,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial11" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -1212,7 +1213,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial12" type="Spatial" parent="." index="15"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -31.2205, 6, 13 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial12" index="0"]
@@ -1262,12 +1263,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial12" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -1277,7 +1278,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial13" type="Spatial" parent="." index="16"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1231, 6, 13 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial13" index="0"]
@@ -1327,12 +1328,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial13" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -1342,7 +1343,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial14" type="Spatial" parent="." index="17"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.106, 6, 13 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform", "Visibility" ]
 
 [node name="Area" type="Area" parent="Spatial14" index="0"]
@@ -1392,12 +1393,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial14" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -1407,7 +1408,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial18" type="Spatial" parent="." index="18"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 6, 13 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial18" index="0"]
@@ -1457,12 +1458,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial18" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -1472,7 +1473,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial40" type="Spatial" parent="." index="19"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 6, 11.4814 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial40" index="0"]
@@ -1522,12 +1523,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial40" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -1537,7 +1538,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial19" type="Spatial" parent="." index="20"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 6, 9.6296 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial19" index="0"]
@@ -1587,12 +1588,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial19" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -1602,7 +1603,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial38" type="Spatial" parent="." index="21"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 6, 9.56936 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial38" index="0"]
@@ -1652,12 +1653,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial38" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -1667,7 +1668,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial20" type="Spatial" parent="." index="22"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 6, 7.45146 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial20" index="0"]
@@ -1717,12 +1718,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial20" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -1732,7 +1733,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial39" type="Spatial" parent="." index="23"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 6, 7.45146 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial39" index="0"]
@@ -1782,12 +1783,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial39" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -1797,7 +1798,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial21" type="Spatial" parent="." index="24"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 6, 0.27025 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial21" index="0"]
@@ -1847,12 +1848,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial21" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -1862,7 +1863,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial41" type="Spatial" parent="." index="25"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.7094, 6.14594, 0.27025 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 
 [node name="Area" type="Area" parent="Spatial41" index="0"]
 
@@ -1911,12 +1912,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial41" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -1926,7 +1927,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial22" type="Spatial" parent="." index="26"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 6, -1.71307 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial22" index="0"]
@@ -1976,12 +1977,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial22" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -1991,7 +1992,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial42" type="Spatial" parent="." index="27"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 6, -1.71307 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial42" index="0"]
@@ -2041,12 +2042,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial42" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -2056,7 +2057,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial23" type="Spatial" parent="." index="28"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 6, 2.41182 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial23" index="0"]
@@ -2106,12 +2107,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial23" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -2121,7 +2122,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial45" type="Spatial" parent="." index="29"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4992, 6, 2 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial45" index="0"]
@@ -2171,12 +2172,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial45" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -2186,7 +2187,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial24" type="Spatial" parent="." index="30"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 6, 5.03432 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial24" index="0"]
@@ -2236,12 +2237,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial24" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -2251,7 +2252,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial44" type="Spatial" parent="." index="31"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.109, 6.05974, -12.5245 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial44" index="0"]
@@ -2301,12 +2302,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial44" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -2316,7 +2317,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial52" type="Spatial" parent="." index="32"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.109, 6.05974, -49.2595 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial52" index="0"]
@@ -2366,12 +2367,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial52" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -2381,7 +2382,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial57" type="Spatial" parent="." index="33"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.7871, 6.05974, -49.2595 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial57" index="0"]
@@ -2431,12 +2432,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial57" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -2446,7 +2447,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial61" type="Spatial" parent="." index="34"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5581, 6.05974, -49.2595 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial61" index="0"]
@@ -2496,12 +2497,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial61" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -2511,7 +2512,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial62" type="Spatial" parent="." index="35"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6219, 6.05974, -68.1738 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial62" index="0"]
@@ -2561,12 +2562,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial62" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -2576,7 +2577,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial91" type="Spatial" parent="." index="36"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -41.8589, 6.05974, -127.351 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial91" index="0"]
@@ -2626,12 +2627,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial91" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -2641,7 +2642,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial97" type="Spatial" parent="." index="37"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -41.8589, 6.05974, -130.174 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial97" index="0"]
@@ -2691,12 +2692,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial97" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -2706,7 +2707,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial98" type="Spatial" parent="." index="38"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -55.1506, 6.05974, -130.174 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial98" index="0"]
@@ -2756,12 +2757,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial98" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -2771,7 +2772,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial103" type="Spatial" parent="." index="39"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -55.1506, 6.05974, -127.586 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial103" index="0"]
@@ -2821,12 +2822,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial103" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -2836,7 +2837,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial107" type="Spatial" parent="." index="40"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -75.9847, 6.05974, -127.586 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial107" index="0"]
@@ -2886,12 +2887,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial107" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -2901,7 +2902,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial112" type="Spatial" parent="." index="41"]
 
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.7888, 6.05974, -107.666 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial112" index="0"]
@@ -2951,12 +2952,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial112" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -2966,7 +2967,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial116" type="Spatial" parent="." index="42"]
 
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.7888, 9.62645, -88.4746 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial116" index="0"]
@@ -3016,12 +3017,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial116" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -3031,7 +3032,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial118" type="Spatial" parent="." index="43"]
 
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.7888, 6.1987, -68.2244 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial118" index="0"]
@@ -3081,12 +3082,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial118" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -3096,7 +3097,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial123" type="Spatial" parent="." index="44"]
 
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.7888, 23.584, -50.8974 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial123" index="0"]
@@ -3146,12 +3147,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial123" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -3161,7 +3162,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial126" type="Spatial" parent="." index="45"]
 
 transform = Transform( 0.999394, 0, -0.0348128, -0.0131755, 0.925614, -0.378239, 0.0322232, 0.378468, 0.925053, -86.7888, 17.918, -35.9333 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial126" index="0"]
@@ -3211,12 +3212,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial126" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -3226,7 +3227,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial130" type="Spatial" parent="." index="46"]
 
 transform = Transform( 0.999394, 0, -0.0348128, -0.0131755, 0.925614, -0.378239, 0.0322232, 0.378468, 0.925053, -86.7888, 13.7592, -26.279 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial130" index="0"]
@@ -3276,12 +3277,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial130" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -3291,7 +3292,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial67" type="Spatial" parent="." index="47"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6219, 6.05974, -106.389 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial67" index="0"]
@@ -3341,12 +3342,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial67" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -3356,7 +3357,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial73" type="Spatial" parent="." index="48"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.508, 6.05974, -123.978 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial73" index="0"]
@@ -3406,12 +3407,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial73" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -3421,7 +3422,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial77" type="Spatial" parent="." index="49"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9888, 6.05974, -123.978 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial77" index="0"]
@@ -3471,12 +3472,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial77" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -3486,7 +3487,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial80" type="Spatial" parent="." index="50"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7899, 6.05974, -123.978 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial80" index="0"]
@@ -3536,12 +3537,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial80" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -3551,7 +3552,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial82" type="Spatial" parent="." index="51"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4552, 6.05974, -123.978 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial82" index="0"]
@@ -3601,12 +3602,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial82" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -3616,7 +3617,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial87" type="Spatial" parent="." index="52"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4552, 6.05974, -123.978 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial87" index="0"]
@@ -3666,12 +3667,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial87" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -3681,7 +3682,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial49" type="Spatial" parent="." index="53"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.109, 6.05974, -8.01122 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial49" index="0"]
@@ -3731,12 +3732,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial49" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -3746,7 +3747,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial51" type="Spatial" parent="." index="54"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.109, 6.05974, -44.7463 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial51" index="0"]
@@ -3796,12 +3797,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial51" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -3811,7 +3812,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial56" type="Spatial" parent="." index="55"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.7871, 6.05974, -44.7463 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial56" index="0"]
@@ -3861,12 +3862,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial56" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -3876,7 +3877,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial60" type="Spatial" parent="." index="56"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5581, 6.05974, -44.7463 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial60" index="0"]
@@ -3926,12 +3927,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial60" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -3941,7 +3942,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial65" type="Spatial" parent="." index="57"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6219, 6.05974, -63.6606 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial65" index="0"]
@@ -3991,12 +3992,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial65" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -4006,7 +4007,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial90" type="Spatial" parent="." index="58"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -37.3487, 6.05974, -127.185 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial90" index="0"]
@@ -4056,12 +4057,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial90" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -4071,7 +4072,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial96" type="Spatial" parent="." index="59"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -37.3487, 6.05974, -130.008 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial96" index="0"]
@@ -4121,12 +4122,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial96" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -4136,7 +4137,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial101" type="Spatial" parent="." index="60"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -50.6404, 6.05974, -130.008 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial101" index="0"]
@@ -4186,12 +4187,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial101" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -4201,7 +4202,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial105" type="Spatial" parent="." index="61"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -50.6404, 6.05974, -127.42 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial105" index="0"]
@@ -4251,12 +4252,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial105" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -4266,7 +4267,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial109" type="Spatial" parent="." index="62"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -71.4745, 6.05974, -127.42 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial109" index="0"]
@@ -4316,12 +4317,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial109" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -4331,7 +4332,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial110" type="Spatial" parent="." index="63"]
 
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.9459, 6.05974, -103.155 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial110" index="0"]
@@ -4381,12 +4382,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial110" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -4396,7 +4397,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial117" type="Spatial" parent="." index="64"]
 
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.9459, 9.62645, -83.9641 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial117" index="0"]
@@ -4446,12 +4447,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial117" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -4461,7 +4462,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial120" type="Spatial" parent="." index="65"]
 
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.9459, 6.1987, -63.7139 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial120" index="0"]
@@ -4511,12 +4512,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial120" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -4526,7 +4527,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial122" type="Spatial" parent="." index="66"]
 
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.9459, 23.584, -46.3869 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial122" index="0"]
@@ -4576,12 +4577,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial122" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -4591,7 +4592,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial128" type="Spatial" parent="." index="67"]
 
 transform = Transform( 0.999394, 0, -0.0348128, -0.0131755, 0.925614, -0.378239, 0.0322232, 0.378468, 0.925053, -86.9459, 16.2109, -31.7583 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial128" index="0"]
@@ -4641,12 +4642,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial128" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -4656,7 +4657,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial132" type="Spatial" parent="." index="68"]
 
 transform = Transform( 0.999394, 0, -0.0348128, -0.0131755, 0.925614, -0.378239, 0.0322232, 0.378468, 0.925053, -86.9459, 12.0521, -22.104 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial132" index="0"]
@@ -4706,12 +4707,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial132" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -4721,7 +4722,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial66" type="Spatial" parent="." index="69"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6219, 6.05974, -101.876 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial66" index="0"]
@@ -4771,12 +4772,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial66" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -4786,7 +4787,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial72" type="Spatial" parent="." index="70"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.508, 6.05974, -119.464 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial72" index="0"]
@@ -4836,12 +4837,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial72" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -4851,7 +4852,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial76" type="Spatial" parent="." index="71"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9888, 6.05974, -119.464 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial76" index="0"]
@@ -4901,12 +4902,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial76" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -4916,7 +4917,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial81" type="Spatial" parent="." index="72"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7899, 6.05974, -119.464 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial81" index="0"]
@@ -4966,12 +4967,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial81" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -4981,7 +4982,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial84" type="Spatial" parent="." index="73"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4552, 6.05974, -119.464 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial84" index="0"]
@@ -5031,12 +5032,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial84" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -5046,7 +5047,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial88" type="Spatial" parent="." index="74"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4552, 6.05974, -119.464 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial88" index="0"]
@@ -5096,12 +5097,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial88" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -5111,7 +5112,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial46" type="Spatial" parent="." index="75"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 6, 4.90148 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial46" index="0"]
@@ -5161,12 +5162,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial46" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -5176,7 +5177,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial25" type="Spatial" parent="." index="76"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 6, -4.0761 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial25" index="0"]
@@ -5226,12 +5227,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial25" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -5241,7 +5242,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial47" type="Spatial" parent="." index="77"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0827, 6.04698, -14.916 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial47" index="0"]
@@ -5291,12 +5292,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial47" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -5306,7 +5307,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial50" type="Spatial" parent="." index="78"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0827, 6.04698, -51.651 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial50" index="0"]
@@ -5356,12 +5357,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial50" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -5371,7 +5372,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial55" type="Spatial" parent="." index="79"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.7607, 6.04698, -51.651 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial55" index="0"]
@@ -5421,12 +5422,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial55" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -5436,7 +5437,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial58" type="Spatial" parent="." index="80"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5318, 6.04698, -51.651 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial58" index="0"]
@@ -5486,12 +5487,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial58" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -5501,7 +5502,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial63" type="Spatial" parent="." index="81"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5956, 6.04698, -70.5653 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial63" index="0"]
@@ -5551,12 +5552,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial63" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -5566,7 +5567,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial92" type="Spatial" parent="." index="82"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -44.2478, 6.04698, -127.465 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial92" index="0"]
@@ -5616,12 +5617,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial92" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -5631,7 +5632,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial94" type="Spatial" parent="." index="83"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -44.2478, 6.04698, -130.288 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial94" index="0"]
@@ -5681,12 +5682,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial94" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -5696,7 +5697,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial100" type="Spatial" parent="." index="84"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -57.5395, 6.04698, -130.288 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial100" index="0"]
@@ -5746,12 +5747,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial100" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -5761,7 +5762,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial104" type="Spatial" parent="." index="85"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -57.5395, 6.04698, -127.701 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial104" index="0"]
@@ -5811,12 +5812,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial104" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -5826,7 +5827,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial108" type="Spatial" parent="." index="86"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -78.3736, 6.04698, -127.701 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial108" index="0"]
@@ -5876,12 +5877,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial108" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -5891,7 +5892,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial111" type="Spatial" parent="." index="87"]
 
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.6793, 6.04698, -110.055 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial111" index="0"]
@@ -5941,12 +5942,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial111" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -5956,7 +5957,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial115" type="Spatial" parent="." index="88"]
 
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.6793, 9.61369, -90.8637 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial115" index="0"]
@@ -6006,12 +6007,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial115" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -6021,7 +6022,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial119" type="Spatial" parent="." index="89"]
 
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.6793, 6.18595, -70.6135 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial119" index="0"]
@@ -6071,12 +6072,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial119" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -6086,7 +6087,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial124" type="Spatial" parent="." index="90"]
 
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.6793, 23.5712, -53.2865 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial124" index="0"]
@@ -6136,12 +6137,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial124" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -6151,7 +6152,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial127" type="Spatial" parent="." index="91"]
 
 transform = Transform( 0.999394, 0, -0.0348128, -0.0131755, 0.925614, -0.378239, 0.0322232, 0.378468, 0.925053, -86.6793, 18.8104, -38.1496 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial127" index="0"]
@@ -6201,12 +6202,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial127" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -6216,7 +6217,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial131" type="Spatial" parent="." index="92"]
 
 transform = Transform( 0.999394, 0, -0.0348128, -0.0131755, 0.925614, -0.378239, 0.0322232, 0.378468, 0.925053, -86.6793, 14.6516, -28.4952 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial131" index="0"]
@@ -6266,12 +6267,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial131" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -6281,7 +6282,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial68" type="Spatial" parent="." index="93"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5956, 6.04698, -108.78 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial68" index="0"]
@@ -6331,12 +6332,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial68" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -6346,7 +6347,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial70" type="Spatial" parent="." index="94"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.4817, 6.04698, -126.369 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial70" index="0"]
@@ -6396,12 +6397,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial70" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -6411,7 +6412,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial75" type="Spatial" parent="." index="95"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9625, 6.04698, -126.369 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial75" index="0"]
@@ -6461,12 +6462,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial75" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -6476,7 +6477,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial78" type="Spatial" parent="." index="96"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7635, 6.04698, -126.369 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial78" index="0"]
@@ -6526,12 +6527,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial78" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -6541,7 +6542,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial83" type="Spatial" parent="." index="97"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4289, 6.04698, -126.369 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial83" index="0"]
@@ -6591,12 +6592,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial83" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -6606,7 +6607,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial89" type="Spatial" parent="." index="98"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4289, 6.04698, -126.369 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial89" index="0"]
@@ -6656,12 +6657,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial89" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -6671,7 +6672,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial48" type="Spatial" parent="." index="99"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0827, 6.04698, -10.4027 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial48" index="0"]
@@ -6721,12 +6722,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial48" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -6736,7 +6737,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial53" type="Spatial" parent="." index="100"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0827, 6.04698, -47.1377 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial53" index="0"]
@@ -6786,12 +6787,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial53" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -6801,7 +6802,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial54" type="Spatial" parent="." index="101"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.7607, 6.04698, -47.1377 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial54" index="0"]
@@ -6851,12 +6852,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial54" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -6866,7 +6867,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial59" type="Spatial" parent="." index="102"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5318, 6.04698, -47.1377 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial59" index="0"]
@@ -6916,12 +6917,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial59" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -6931,7 +6932,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial64" type="Spatial" parent="." index="103"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5956, 6.04698, -66.052 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial64" index="0"]
@@ -6981,12 +6982,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial64" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -6996,7 +6997,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial93" type="Spatial" parent="." index="104"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -39.7376, 6.04698, -127.299 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial93" index="0"]
@@ -7046,12 +7047,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial93" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 1.0
 autoplay = false
 mix_target = 0
@@ -7061,7 +7062,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial95" type="Spatial" parent="." index="105"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -39.7376, 6.04698, -130.122 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial95" index="0"]
@@ -7111,12 +7112,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial95" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -7126,7 +7127,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial99" type="Spatial" parent="." index="106"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -53.0293, 6.04698, -130.122 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial99" index="0"]
@@ -7176,12 +7177,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial99" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -7191,7 +7192,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial102" type="Spatial" parent="." index="107"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -53.0293, 6.04698, -127.535 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial102" index="0"]
@@ -7241,12 +7242,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial102" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -7256,7 +7257,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial106" type="Spatial" parent="." index="108"]
 
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -73.8634, 6.04698, -127.535 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial106" index="0"]
@@ -7306,12 +7307,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial106" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -7321,7 +7322,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial113" type="Spatial" parent="." index="109"]
 
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.8364, 6.04698, -105.544 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial113" index="0"]
@@ -7371,12 +7372,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial113" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -7386,7 +7387,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial114" type="Spatial" parent="." index="110"]
 
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.8364, 9.61369, -86.3532 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial114" index="0"]
@@ -7436,12 +7437,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial114" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -7451,7 +7452,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial121" type="Spatial" parent="." index="111"]
 
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.8364, 6.18595, -66.103 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial121" index="0"]
@@ -7501,12 +7502,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial121" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -7516,7 +7517,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial125" type="Spatial" parent="." index="112"]
 
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.8364, 23.5712, -48.776 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial125" index="0"]
@@ -7566,12 +7567,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial125" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -7581,7 +7582,7 @@ _sections_unfolded = [ "Pause" ]
 [node name="Spatial129" type="Spatial" parent="." index="113"]
 
 transform = Transform( 0.999394, 0, -0.0348128, -0.0131755, 0.925614, -0.378239, 0.0322232, 0.378468, 0.925053, -86.8364, 17.1033, -33.9746 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial129" index="0"]
@@ -7631,12 +7632,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial129" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -7645,8 +7646,9 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="Spatial133" type="Spatial" parent="." index="114"]
 
+editor/display_folded = true
 transform = Transform( 0.999394, 0, -0.0348128, -0.0131755, 0.925614, -0.378239, 0.0322232, 0.378468, 0.925053, -86.8364, 12.9445, -24.3202 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial133" index="0"]
@@ -7696,12 +7698,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial133" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -7710,8 +7712,9 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="Spatial69" type="Spatial" parent="." index="115"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5956, 6.04698, -104.267 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial69" index="0"]
@@ -7761,12 +7764,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial69" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -7775,8 +7778,9 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="Spatial71" type="Spatial" parent="." index="116"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.4817, 6.04698, -121.856 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial71" index="0"]
@@ -7826,12 +7830,12 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial71" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
@@ -7840,8 +7844,9 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="Spatial74" type="Spatial" parent="." index="117"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9625, 6.04698, -121.856 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial74" index="0"]
@@ -7891,22 +7896,83 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial74" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial79" type="Spatial" parent="." index="118"]
+[node name="TextureProgress" type="TextureProgress" parent="." index="118"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 317.0
+margin_top = 1.0
+margin_right = 728.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+texture_under = ExtResource( 11 )
+texture_over = null
+texture_progress = null
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = true
+_sections_unfolded = [ "Textures" ]
+
+[node name="timebar" type="TextureProgress" parent="TextureProgress" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 8.0
+margin_top = 7.0
+margin_right = 403.0
+margin_bottom = 33.0
+rect_pivot_offset = Vector2( 0, 0 )
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 100.0
+exp_edit = false
+rounded = false
+texture_under = null
+texture_over = null
+texture_progress = ExtResource( 12 )
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = true
+script = ExtResource( 13 )
+_sections_unfolded = [ "Radial Fill", "Textures" ]
+
+[node name="Spatial79" type="Spatial" parent="." index="119"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7635, 6.04698, -121.856 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial79" index="0"]
@@ -7956,22 +8022,23 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial79" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial85" type="Spatial" parent="." index="119"]
+[node name="Spatial85" type="Spatial" parent="." index="120"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4289, 6.04698, -121.856 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial85" index="0"]
@@ -8021,22 +8088,23 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial85" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial86" type="Spatial" parent="." index="120"]
+[node name="Spatial86" type="Spatial" parent="." index="121"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4289, 6.04698, -121.856 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial86" index="0"]
@@ -8086,22 +8154,23 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial86" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial43" type="Spatial" parent="." index="121"]
+[node name="Spatial43" type="Spatial" parent="." index="122"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 6, -4.0761 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial43" index="0"]
@@ -8151,22 +8220,23 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial43" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial26" type="Spatial" parent="." index="122"]
+[node name="Spatial26" type="Spatial" parent="." index="123"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 6, -4 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial26" index="0"]
@@ -8216,22 +8286,23 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial26" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial27" type="Spatial" parent="." index="123"]
+[node name="Spatial27" type="Spatial" parent="." index="124"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.7988, 6, 5 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial27" index="0"]
@@ -8281,22 +8352,23 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial27" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial28" type="Spatial" parent="." index="124"]
+[node name="Spatial28" type="Spatial" parent="." index="125"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2362, 5.31869, 5 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial28" index="0"]
@@ -8346,22 +8418,23 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial28" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial29" type="Spatial" parent="." index="125"]
+[node name="Spatial29" type="Spatial" parent="." index="126"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.4962, 4.63218, 5 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial29" index="0"]
@@ -8411,22 +8484,23 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial29" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial30" type="Spatial" parent="." index="126"]
+[node name="Spatial30" type="Spatial" parent="." index="127"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.5744, 3.93912, 5 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial30" index="0"]
@@ -8476,22 +8550,23 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial30" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial31" type="Spatial" parent="." index="127"]
+[node name="Spatial31" type="Spatial" parent="." index="128"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8994, 3.22066, 5 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial31" index="0"]
@@ -8541,22 +8616,23 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial31" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial32" type="Spatial" parent="." index="128"]
+[node name="Spatial32" type="Spatial" parent="." index="129"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -9.48694, 2.57792, 5 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial32" index="0"]
@@ -8606,22 +8682,23 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial32" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial33" type="Spatial" parent="." index="129"]
+[node name="Spatial33" type="Spatial" parent="." index="130"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.87321, 2.09551, 5 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Area" type="Area" parent="Spatial33" index="0"]
@@ -8671,23 +8748,24 @@ lod_max_hysteresis = 0.0
 mesh = SubResource( 3 )
 skeleton = NodePath("..")
 material/0 = null
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial33" index="1"]
 
 pause_mode = 1
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 9.14
 autoplay = false
 mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial4" type="Spatial" parent="." index="130"]
+[node name="Spatial4" type="Spatial" parent="." index="131"]
 
+editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -92.9465, 3.29277, -16.5739 )
-script = ExtResource( 9 )
+script = ExtResource( 8 )
 
 [node name="Area" type="Area" parent="Spatial4" index="0"]
 
@@ -8733,15 +8811,15 @@ lod_min_distance = 0.0
 lod_min_hysteresis = 0.0
 lod_max_distance = 0.0
 lod_max_hysteresis = 0.0
-mesh = ExtResource( 12 )
+mesh = ExtResource( 14 )
 skeleton = NodePath("..")
 material/0 = SubResource( 4 )
-script = ExtResource( 10 )
+script = ExtResource( 9 )
 _sections_unfolded = [ "Geometry", "Transform", "material" ]
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Spatial4" index="1"]
 
-stream = ExtResource( 11 )
+stream = ExtResource( 10 )
 volume_db = 0.0
 autoplay = false
 mix_target = 0
