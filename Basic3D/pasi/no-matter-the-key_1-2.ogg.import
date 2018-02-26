@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/no-matter-the-key_1-2.ogg-7826fb33daa554b91f9962201083c871.oggstr"
+
+[deps]
+
+source_file="res://pasi/no-matter-the-key_1-2.ogg"
+source_md5="eb07ce28a99934a02721d6912cf3c09a"
+
+dest_files=[ "res://.import/no-matter-the-key_1-2.ogg-7826fb33daa554b91f9962201083c871.oggstr" ]
+dest_md5="785b8cd22dd76dcb301b2afcac87d295"
+
+[params]
+
+loop=false
+loop_offset=0

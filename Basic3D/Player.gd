@@ -5,9 +5,7 @@ var direction=Vector3()
 var gravity = -9.8
 var velocity = Vector3()
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
+	add_to_group("Player", true);
 
 func _physics_process(delta):
 	direction=Vector3(0,0,0)

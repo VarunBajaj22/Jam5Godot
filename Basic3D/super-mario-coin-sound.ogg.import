@@ -1,0 +1,18 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/super-mario-coin-sound.ogg-6f337ae3ba13084f621601f4110b0b87.oggstr"
+
+[deps]
+
+source_file="res://super-mario-coin-sound.ogg"
+source_md5="3784e5aa1da9d5ea74e3f83f4b15d5cb"
+
+dest_files=[ "res://.import/super-mario-coin-sound.ogg-6f337ae3ba13084f621601f4110b0b87.oggstr" ]
+dest_md5="a2e72d8c9f1f6400a0bcfd4648e39817"
+
+[params]
+
+loop=false
+loop_offset=0
