@@ -22,7 +22,6 @@ func _on_Area_body_entered(body):
 			$Area/MeshInstance.hide()
 			$AudioStreamPlayer.play()
 			$Area.hide();
-			print(get_tree().get_root().get_node("TextureProgress"))
-			#get_node("../TextureProgress/timebar").value+=1
+			get_node("../../TextureProgress/timebar").value+=1
 			$Area/CollisionShape.hide()
 			a=5;

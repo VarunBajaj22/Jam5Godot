@@ -8,10 +8,8 @@ var positionOrigin;
 
 func _ready():
 	positionOrigin = global_transform.origin;
-	
-	
-func _process(delta): 
 
+func _process(delta):
 	var newZ = global_transform.origin.z; 
 	newZ += delta * speed * direction ; 
 	newZ = lerp(global_transform.origin.z, newZ , 1);

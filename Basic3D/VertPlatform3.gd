@@ -8,10 +8,8 @@ var positionOrigin;
 
 func _ready():
 	positionOrigin = global_transform.origin;
-	
-	
-func _process(delta): 
 
+func _process(delta): 
 	var newY = global_transform.origin.y; 
 	newY += delta * speed * direction ; 
 	newY = lerp(global_transform.origin.y, newY , 1);

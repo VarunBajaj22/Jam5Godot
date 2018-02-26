@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Floor.tscn" type="PackedScene" id=2]
@@ -15,6 +15,9 @@
 [ext_resource path="res://super-mario-coin-sound.ogg" type="AudioStream" id=13]
 [ext_resource path="res://key1111.obj" type="ArrayMesh" id=14]
 [ext_resource path="res://Trap_Box.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Trap_Box.gd" type="Script" id=16]
+[ext_resource path="res://Bullet.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Bullet.gd" type="Script" id=18]
 
 [sub_resource type="BoxShape" id=1]
 
@@ -142,6 +145,7 @@ script = ExtResource( 1 )
 
 [node name="Floor" parent="." index="0" instance=ExtResource( 2 )]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Walls" parent="Floor" index="1" instance=ExtResource( 3 )]
@@ -3734,7 +3738,73 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial13" type="Spatial" parent="Coins" index="49"]
+[node name="Spatial15" type="Spatial" parent="Coins" index="49"]
+
+editor/display_folded = true
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -28.2205, 6, 13 )
+script = ExtResource( 11 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Area" type="Area" parent="Coins/Spatial15" index="0"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7828, -5.6271, -25.7643 )
+input_ray_pickable = false
+input_capture_on_drag = false
+space_override = 0
+gravity_point = false
+gravity_distance_scale = 0.0
+gravity_vec = Vector3( 0, -1, 0 )
+gravity = 9.8
+linear_damp = 0.1
+angular_damp = 1.0
+priority = 0.0
+monitoring = true
+monitorable = true
+collision_layer = 1
+collision_mask = 1
+audio_bus_override = false
+audio_bus_name = "Master"
+reverb_bus_enable = false
+reverb_bus_name = "Master"
+reverb_bus_amount = 0.0
+reverb_bus_uniformity = 0.0
+_sections_unfolded = [ "Collision", "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="Coins/Spatial15/Area" index="0"]
+
+transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
+shape = SubResource( 1 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="MeshInstance" type="MeshInstance" parent="Coins/Spatial15/Area" index="1"]
+
+transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
+layers = 1
+material_override = SubResource( 2 )
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 3 )
+skeleton = NodePath("..")
+material/0 = null
+script = ExtResource( 12 )
+_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Coins/Spatial15" index="1"]
+
+stream = ExtResource( 13 )
+volume_db = 0.0
+autoplay = false
+mix_target = 0
+bus = "Master"
+_sections_unfolded = [ "Pause" ]
+
+[node name="Spatial13" type="Spatial" parent="Coins" index="50"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.1231, 6, 13 )
@@ -3750,7 +3820,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial14" type="Spatial" parent="Coins" index="50"]
+[node name="Spatial14" type="Spatial" parent="Coins" index="51"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.106, 6, 13 )
@@ -3816,7 +3886,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial18" type="Spatial" parent="Coins" index="51"]
+[node name="Spatial18" type="Spatial" parent="Coins" index="52"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 6, 13 )
@@ -3882,7 +3952,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial40" type="Spatial" parent="Coins" index="52"]
+[node name="Spatial40" type="Spatial" parent="Coins" index="53"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 6, 11.4814 )
@@ -3948,7 +4018,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial19" type="Spatial" parent="Coins" index="53"]
+[node name="Spatial19" type="Spatial" parent="Coins" index="54"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 6, 9.6296 )
@@ -4014,57 +4084,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Area2" type="Area" parent="Coins/Spatial19" index="2"]
-
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.3403, -5.6271, -22.3939 )
-input_ray_pickable = false
-input_capture_on_drag = false
-space_override = 0
-gravity_point = false
-gravity_distance_scale = 0.0
-gravity_vec = Vector3( 0, -1, 0 )
-gravity = 9.8
-linear_damp = 0.1
-angular_damp = 1.0
-priority = 0.0
-monitoring = true
-monitorable = true
-collision_layer = 1
-collision_mask = 1
-audio_bus_override = false
-audio_bus_name = "Master"
-reverb_bus_enable = false
-reverb_bus_name = "Master"
-reverb_bus_amount = 0.0
-reverb_bus_uniformity = 0.0
-_sections_unfolded = [ "Collision", "Transform" ]
-
-[node name="CollisionShape" type="CollisionShape" parent="Coins/Spatial19/Area2" index="0"]
-
-transform = Transform( 0.13014, 0, 0, 0, 0.466263, 0, 0, 0, 0.487491, -4.97814, 6.37636, 20.7707 )
-shape = SubResource( 1 )
-disabled = false
-_sections_unfolded = [ "Transform" ]
-
-[node name="MeshInstance" type="MeshInstance" parent="Coins/Spatial19/Area2" index="1"]
-
-transform = Transform( -2.18557e-08, -0.01, 0, 0.5, -4.37114e-10, 0, 0, 0, 0.5, -4.95462, 6.3785, 20.752 )
-layers = 1
-material_override = SubResource( 2 )
-cast_shadow = 1
-extra_cull_margin = 0.0
-use_in_baked_light = false
-lod_min_distance = 0.0
-lod_min_hysteresis = 0.0
-lod_max_distance = 0.0
-lod_max_hysteresis = 0.0
-mesh = SubResource( 3 )
-skeleton = NodePath("..")
-material/0 = null
-script = ExtResource( 12 )
-_sections_unfolded = [ "Geometry", "Transform", "Visibility" ]
-
-[node name="Spatial38" type="Spatial" parent="Coins" index="54"]
+[node name="Spatial38" type="Spatial" parent="Coins" index="55"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 6, 9.56936 )
@@ -4130,7 +4150,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial20" type="Spatial" parent="Coins" index="55"]
+[node name="Spatial20" type="Spatial" parent="Coins" index="56"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 6, 7.45146 )
@@ -4196,7 +4216,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial39" type="Spatial" parent="Coins" index="56"]
+[node name="Spatial39" type="Spatial" parent="Coins" index="57"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 6, 7.45146 )
@@ -4262,7 +4282,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial21" type="Spatial" parent="Coins" index="57"]
+[node name="Spatial21" type="Spatial" parent="Coins" index="58"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 6, 0.27025 )
@@ -4328,7 +4348,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial41" type="Spatial" parent="Coins" index="58"]
+[node name="Spatial41" type="Spatial" parent="Coins" index="59"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.7094, 6.14594, 0.27025 )
@@ -4393,7 +4413,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial22" type="Spatial" parent="Coins" index="59"]
+[node name="Spatial22" type="Spatial" parent="Coins" index="60"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 6, -1.71307 )
@@ -4459,7 +4479,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial42" type="Spatial" parent="Coins" index="60"]
+[node name="Spatial42" type="Spatial" parent="Coins" index="61"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 6, -1.71307 )
@@ -4525,7 +4545,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial23" type="Spatial" parent="Coins" index="61"]
+[node name="Spatial23" type="Spatial" parent="Coins" index="62"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 6, 2.41182 )
@@ -4591,7 +4611,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial45" type="Spatial" parent="Coins" index="62"]
+[node name="Spatial45" type="Spatial" parent="Coins" index="63"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -36.4992, 6, 2 )
@@ -4657,7 +4677,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial24" type="Spatial" parent="Coins" index="63"]
+[node name="Spatial24" type="Spatial" parent="Coins" index="64"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 6, 5.03432 )
@@ -4723,7 +4743,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial44" type="Spatial" parent="Coins" index="64"]
+[node name="Spatial44" type="Spatial" parent="Coins" index="65"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.109, 6.05974, -12.5245 )
@@ -4789,7 +4809,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial52" type="Spatial" parent="Coins" index="65"]
+[node name="Spatial52" type="Spatial" parent="Coins" index="66"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.109, 6.05974, -49.2595 )
@@ -4855,7 +4875,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial57" type="Spatial" parent="Coins" index="66"]
+[node name="Spatial57" type="Spatial" parent="Coins" index="67"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.7871, 6.05974, -49.2595 )
@@ -4921,7 +4941,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial61" type="Spatial" parent="Coins" index="67"]
+[node name="Spatial61" type="Spatial" parent="Coins" index="68"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5581, 6.05974, -49.2595 )
@@ -4987,7 +5007,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial62" type="Spatial" parent="Coins" index="68"]
+[node name="Spatial62" type="Spatial" parent="Coins" index="69"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6219, 6.05974, -68.1738 )
@@ -5053,7 +5073,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial91" type="Spatial" parent="Coins" index="69"]
+[node name="Spatial91" type="Spatial" parent="Coins" index="70"]
 
 editor/display_folded = true
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -41.8589, 6.05974, -127.351 )
@@ -5119,7 +5139,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial97" type="Spatial" parent="Coins" index="70"]
+[node name="Spatial97" type="Spatial" parent="Coins" index="71"]
 
 editor/display_folded = true
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -41.8589, 6.05974, -130.174 )
@@ -5185,7 +5205,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial98" type="Spatial" parent="Coins" index="71"]
+[node name="Spatial98" type="Spatial" parent="Coins" index="72"]
 
 editor/display_folded = true
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -55.1506, 6.05974, -130.174 )
@@ -5251,7 +5271,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial103" type="Spatial" parent="Coins" index="72"]
+[node name="Spatial103" type="Spatial" parent="Coins" index="73"]
 
 editor/display_folded = true
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -55.1506, 6.05974, -127.586 )
@@ -5317,7 +5337,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial107" type="Spatial" parent="Coins" index="73"]
+[node name="Spatial107" type="Spatial" parent="Coins" index="74"]
 
 editor/display_folded = true
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -75.9847, 6.05974, -127.586 )
@@ -5383,7 +5403,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial112" type="Spatial" parent="Coins" index="74"]
+[node name="Spatial112" type="Spatial" parent="Coins" index="75"]
 
 editor/display_folded = true
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.7888, 6.05974, -107.666 )
@@ -5449,7 +5469,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial116" type="Spatial" parent="Coins" index="75"]
+[node name="Spatial116" type="Spatial" parent="Coins" index="76"]
 
 editor/display_folded = true
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.7888, 9.62645, -88.4746 )
@@ -5515,7 +5535,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial118" type="Spatial" parent="Coins" index="76"]
+[node name="Spatial118" type="Spatial" parent="Coins" index="77"]
 
 editor/display_folded = true
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.7888, 6.1987, -68.2244 )
@@ -5581,7 +5601,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial123" type="Spatial" parent="Coins" index="77"]
+[node name="Spatial123" type="Spatial" parent="Coins" index="78"]
 
 editor/display_folded = true
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.7888, 23.584, -50.8974 )
@@ -5647,7 +5667,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial126" type="Spatial" parent="Coins" index="78"]
+[node name="Spatial126" type="Spatial" parent="Coins" index="79"]
 
 editor/display_folded = true
 transform = Transform( 0.999394, 0, -0.0348128, -0.0131755, 0.925614, -0.378239, 0.0322232, 0.378468, 0.925053, -86.7888, 17.918, -35.9333 )
@@ -5713,7 +5733,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial130" type="Spatial" parent="Coins" index="79"]
+[node name="Spatial130" type="Spatial" parent="Coins" index="80"]
 
 editor/display_folded = true
 transform = Transform( 0.999394, 0, -0.0348128, -0.0131755, 0.925614, -0.378239, 0.0322232, 0.378468, 0.925053, -86.7888, 13.7592, -26.279 )
@@ -5779,7 +5799,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial67" type="Spatial" parent="Coins" index="80"]
+[node name="Spatial67" type="Spatial" parent="Coins" index="81"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6219, 6.05974, -106.389 )
@@ -5845,7 +5865,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial73" type="Spatial" parent="Coins" index="81"]
+[node name="Spatial73" type="Spatial" parent="Coins" index="82"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.508, 6.05974, -123.978 )
@@ -5911,7 +5931,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial77" type="Spatial" parent="Coins" index="82"]
+[node name="Spatial77" type="Spatial" parent="Coins" index="83"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9888, 6.05974, -123.978 )
@@ -5977,7 +5997,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial80" type="Spatial" parent="Coins" index="83"]
+[node name="Spatial80" type="Spatial" parent="Coins" index="84"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7899, 6.05974, -123.978 )
@@ -6043,7 +6063,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial82" type="Spatial" parent="Coins" index="84"]
+[node name="Spatial82" type="Spatial" parent="Coins" index="85"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4552, 6.05974, -123.978 )
@@ -6109,7 +6129,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial87" type="Spatial" parent="Coins" index="85"]
+[node name="Spatial87" type="Spatial" parent="Coins" index="86"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4552, 6.05974, -123.978 )
@@ -6175,7 +6195,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial49" type="Spatial" parent="Coins" index="86"]
+[node name="Spatial49" type="Spatial" parent="Coins" index="87"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.109, 6.05974, -8.01122 )
@@ -6241,7 +6261,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial51" type="Spatial" parent="Coins" index="87"]
+[node name="Spatial51" type="Spatial" parent="Coins" index="88"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.109, 6.05974, -44.7463 )
@@ -6307,7 +6327,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial56" type="Spatial" parent="Coins" index="88"]
+[node name="Spatial56" type="Spatial" parent="Coins" index="89"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.7871, 6.05974, -44.7463 )
@@ -6373,7 +6393,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial60" type="Spatial" parent="Coins" index="89"]
+[node name="Spatial60" type="Spatial" parent="Coins" index="90"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5581, 6.05974, -44.7463 )
@@ -6439,7 +6459,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial65" type="Spatial" parent="Coins" index="90"]
+[node name="Spatial65" type="Spatial" parent="Coins" index="91"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6219, 6.05974, -63.6606 )
@@ -6505,7 +6525,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial90" type="Spatial" parent="Coins" index="91"]
+[node name="Spatial90" type="Spatial" parent="Coins" index="92"]
 
 editor/display_folded = true
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -37.3487, 6.05974, -127.185 )
@@ -6571,7 +6591,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial96" type="Spatial" parent="Coins" index="92"]
+[node name="Spatial96" type="Spatial" parent="Coins" index="93"]
 
 editor/display_folded = true
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -37.3487, 6.05974, -130.008 )
@@ -6637,7 +6657,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial101" type="Spatial" parent="Coins" index="93"]
+[node name="Spatial101" type="Spatial" parent="Coins" index="94"]
 
 editor/display_folded = true
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -50.6404, 6.05974, -130.008 )
@@ -6703,7 +6723,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial105" type="Spatial" parent="Coins" index="94"]
+[node name="Spatial105" type="Spatial" parent="Coins" index="95"]
 
 editor/display_folded = true
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -50.6404, 6.05974, -127.42 )
@@ -6769,7 +6789,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial109" type="Spatial" parent="Coins" index="95"]
+[node name="Spatial109" type="Spatial" parent="Coins" index="96"]
 
 editor/display_folded = true
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -71.4745, 6.05974, -127.42 )
@@ -6835,7 +6855,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial110" type="Spatial" parent="Coins" index="96"]
+[node name="Spatial110" type="Spatial" parent="Coins" index="97"]
 
 editor/display_folded = true
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.9459, 6.05974, -103.155 )
@@ -6901,7 +6921,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial117" type="Spatial" parent="Coins" index="97"]
+[node name="Spatial117" type="Spatial" parent="Coins" index="98"]
 
 editor/display_folded = true
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.9459, 9.62645, -83.9641 )
@@ -6967,7 +6987,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial120" type="Spatial" parent="Coins" index="98"]
+[node name="Spatial120" type="Spatial" parent="Coins" index="99"]
 
 editor/display_folded = true
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.9459, 6.1987, -63.7139 )
@@ -7033,7 +7053,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial122" type="Spatial" parent="Coins" index="99"]
+[node name="Spatial122" type="Spatial" parent="Coins" index="100"]
 
 editor/display_folded = true
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.9459, 23.584, -46.3869 )
@@ -7099,7 +7119,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial128" type="Spatial" parent="Coins" index="100"]
+[node name="Spatial128" type="Spatial" parent="Coins" index="101"]
 
 editor/display_folded = true
 transform = Transform( 0.999394, 0, -0.0348128, -0.0131755, 0.925614, -0.378239, 0.0322232, 0.378468, 0.925053, -86.9459, 16.2109, -31.7583 )
@@ -7165,7 +7185,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial132" type="Spatial" parent="Coins" index="101"]
+[node name="Spatial132" type="Spatial" parent="Coins" index="102"]
 
 editor/display_folded = true
 transform = Transform( 0.999394, 0, -0.0348128, -0.0131755, 0.925614, -0.378239, 0.0322232, 0.378468, 0.925053, -86.9459, 12.0521, -22.104 )
@@ -7231,7 +7251,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial66" type="Spatial" parent="Coins" index="102"]
+[node name="Spatial66" type="Spatial" parent="Coins" index="103"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.6219, 6.05974, -101.876 )
@@ -7297,7 +7317,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial72" type="Spatial" parent="Coins" index="103"]
+[node name="Spatial72" type="Spatial" parent="Coins" index="104"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.508, 6.05974, -119.464 )
@@ -7363,7 +7383,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial76" type="Spatial" parent="Coins" index="104"]
+[node name="Spatial76" type="Spatial" parent="Coins" index="105"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29.9888, 6.05974, -119.464 )
@@ -7429,7 +7449,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial81" type="Spatial" parent="Coins" index="105"]
+[node name="Spatial81" type="Spatial" parent="Coins" index="106"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -26.7899, 6.05974, -119.464 )
@@ -7495,7 +7515,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial84" type="Spatial" parent="Coins" index="106"]
+[node name="Spatial84" type="Spatial" parent="Coins" index="107"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4552, 6.05974, -119.464 )
@@ -7561,7 +7581,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial88" type="Spatial" parent="Coins" index="107"]
+[node name="Spatial88" type="Spatial" parent="Coins" index="108"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.4552, 6.05974, -119.464 )
@@ -7627,7 +7647,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial55" type="Spatial" parent="Coins" index="108"]
+[node name="Spatial55" type="Spatial" parent="Coins" index="109"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -30.7607, 6.04698, -51.651 )
@@ -7693,7 +7713,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial58" type="Spatial" parent="Coins" index="109"]
+[node name="Spatial58" type="Spatial" parent="Coins" index="110"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -23.5318, 6.04698, -51.651 )
@@ -7759,7 +7779,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial63" type="Spatial" parent="Coins" index="110"]
+[node name="Spatial63" type="Spatial" parent="Coins" index="111"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5956, 6.04698, -70.5653 )
@@ -7825,7 +7845,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial92" type="Spatial" parent="Coins" index="111"]
+[node name="Spatial92" type="Spatial" parent="Coins" index="112"]
 
 editor/display_folded = true
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -44.2478, 6.04698, -127.465 )
@@ -7891,7 +7911,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial94" type="Spatial" parent="Coins" index="112"]
+[node name="Spatial94" type="Spatial" parent="Coins" index="113"]
 
 editor/display_folded = true
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -44.2478, 6.04698, -130.288 )
@@ -7957,7 +7977,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial100" type="Spatial" parent="Coins" index="113"]
+[node name="Spatial100" type="Spatial" parent="Coins" index="114"]
 
 editor/display_folded = true
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -57.5395, 6.04698, -130.288 )
@@ -8023,7 +8043,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial104" type="Spatial" parent="Coins" index="114"]
+[node name="Spatial104" type="Spatial" parent="Coins" index="115"]
 
 editor/display_folded = true
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -57.5395, 6.04698, -127.701 )
@@ -8089,7 +8109,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial108" type="Spatial" parent="Coins" index="115"]
+[node name="Spatial108" type="Spatial" parent="Coins" index="116"]
 
 editor/display_folded = true
 transform = Transform( 0.0367445, 0, 0.999325, 0, 1, 0, -0.999325, 0, 0.0367445, -78.3736, 6.04698, -127.701 )
@@ -8155,7 +8175,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial111" type="Spatial" parent="Coins" index="116"]
+[node name="Spatial111" type="Spatial" parent="Coins" index="117"]
 
 editor/display_folded = true
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.6793, 6.04698, -110.055 )
@@ -8221,7 +8241,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial115" type="Spatial" parent="Coins" index="117"]
+[node name="Spatial115" type="Spatial" parent="Coins" index="118"]
 
 editor/display_folded = true
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.6793, 9.61369, -90.8637 )
@@ -8287,7 +8307,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial119" type="Spatial" parent="Coins" index="118"]
+[node name="Spatial119" type="Spatial" parent="Coins" index="119"]
 
 editor/display_folded = true
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.6793, 6.18595, -70.6135 )
@@ -8353,7 +8373,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial124" type="Spatial" parent="Coins" index="119"]
+[node name="Spatial124" type="Spatial" parent="Coins" index="120"]
 
 editor/display_folded = true
 transform = Transform( 0.999394, 0, -0.0348128, 0, 1, 0, 0.0348128, 0, 0.999394, -86.6793, 23.5712, -53.2865 )
@@ -8419,7 +8439,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial127" type="Spatial" parent="Coins" index="120"]
+[node name="Spatial127" type="Spatial" parent="Coins" index="121"]
 
 editor/display_folded = true
 transform = Transform( 0.999394, 0, -0.0348128, -0.0131755, 0.925614, -0.378239, 0.0322232, 0.378468, 0.925053, -86.6793, 18.8104, -38.1496 )
@@ -8485,7 +8505,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial131" type="Spatial" parent="Coins" index="121"]
+[node name="Spatial131" type="Spatial" parent="Coins" index="122"]
 
 editor/display_folded = true
 transform = Transform( 0.999394, 0, -0.0348128, -0.0131755, 0.925614, -0.378239, 0.0322232, 0.378468, 0.925053, -86.6793, 14.6516, -28.4952 )
@@ -8551,7 +8571,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial68" type="Spatial" parent="Coins" index="122"]
+[node name="Spatial68" type="Spatial" parent="Coins" index="123"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5956, 6.04698, -108.78 )
@@ -8617,7 +8637,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial70" type="Spatial" parent="Coins" index="123"]
+[node name="Spatial70" type="Spatial" parent="Coins" index="124"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -33.4817, 6.04698, -126.369 )
@@ -8683,7 +8703,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial46" type="Spatial" parent="Coins" index="124"]
+[node name="Spatial46" type="Spatial" parent="Coins" index="125"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -37, 6, 4.90148 )
@@ -8749,7 +8769,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial25" type="Spatial" parent="Coins" index="125"]
+[node name="Spatial25" type="Spatial" parent="Coins" index="126"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -19, 6, -4.0761 )
@@ -8815,7 +8835,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial47" type="Spatial" parent="Coins" index="126"]
+[node name="Spatial47" type="Spatial" parent="Coins" index="127"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0827, 6.04698, -14.916 )
@@ -8881,7 +8901,7 @@ mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
 
-[node name="Spatial50" type="Spatial" parent="Coins" index="127"]
+[node name="Spatial50" type="Spatial" parent="Coins" index="128"]
 
 editor/display_folded = true
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -27.0827, 6.04698, -51.651 )
@@ -8949,11 +8969,13 @@ _sections_unfolded = [ "Pause" ]
 
 [node name="Spatial" type="Spatial" parent="." index="5"]
 
-[node name="Trap_Box2" parent="Spatial" index="0" instance=ExtResource( 15 )]
+[node name="Trap_Box" parent="Spatial" index="0" instance=ExtResource( 15 )]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 2, 7 )
+script = ExtResource( 16 )
+bulletDirection = 1
 
-[node name="Area2" type="Area" parent="Spatial/Trap_Box2" index="2"]
+[node name="Area" type="Area" parent="Spatial/Trap_Box" index="1"]
 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, -3 )
 input_ray_pickable = false
@@ -8978,10 +9000,14 @@ reverb_bus_amount = 0.0
 reverb_bus_uniformity = 0.0
 _sections_unfolded = [ "Transform" ]
 
-[node name="CollisionShape" type="CollisionShape" parent="Spatial/Trap_Box2/Area2" index="0"]
+[node name="CollisionShape" type="CollisionShape" parent="Spatial/Trap_Box/Area" index="0"]
 
 shape = SubResource( 5 )
 disabled = false
+
+[node name="Bullet" parent="Spatial/Trap_Box" index="2" instance=ExtResource( 17 )]
+
+script = ExtResource( 18 )
 
 [connection signal="area_entered" from="Coins/Spatial85/Area" to="Coins/Spatial85" method="_on_Area_area_entered"]
 
@@ -9179,6 +9205,10 @@ disabled = false
 
 [connection signal="body_entered" from="Coins/Spatial12/Area" to="Coins/Spatial12" method="_on_Area_body_entered"]
 
+[connection signal="area_entered" from="Coins/Spatial15/Area" to="Coins/Spatial15" method="_on_Area_area_entered"]
+
+[connection signal="body_entered" from="Coins/Spatial15/Area" to="Coins/Spatial15" method="_on_Area_body_entered"]
+
 [connection signal="area_entered" from="Coins/Spatial14/Area" to="Coins/Spatial14" method="_on_Area_area_entered"]
 
 [connection signal="body_entered" from="Coins/Spatial14/Area" to="Coins/Spatial14" method="_on_Area_body_entered"]
@@ -9194,10 +9224,6 @@ disabled = false
 [connection signal="area_entered" from="Coins/Spatial19/Area" to="Coins/Spatial19" method="_on_Area_area_entered"]
 
 [connection signal="body_entered" from="Coins/Spatial19/Area" to="Coins/Spatial19" method="_on_Area_body_entered"]
-
-[connection signal="area_entered" from="Coins/Spatial19/Area2" to="Coins/Spatial13" method="_on_Area_area_entered"]
-
-[connection signal="body_entered" from="Coins/Spatial19/Area2" to="Coins/Spatial13" method="_on_Area_body_entered"]
 
 [connection signal="area_entered" from="Coins/Spatial38/Area" to="Coins/Spatial38" method="_on_Area_area_entered"]
 
@@ -9494,5 +9520,7 @@ disabled = false
 [connection signal="area_entered" from="Coins/Spatial50/Area" to="Coins/Spatial50" method="_on_Area_area_entered"]
 
 [connection signal="body_entered" from="Coins/Spatial50/Area" to="Coins/Spatial50" method="_on_Area_body_entered"]
+
+[connection signal="body_entered" from="Spatial/Trap_Box/Area" to="Spatial/Trap_Box" method="_on_Area_body_entered"]
 
 

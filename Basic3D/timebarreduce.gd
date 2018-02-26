@@ -12,13 +12,13 @@ func _ready():
 func _process(delta):
 	value=value-delta*5
 	if value < 30 :
-	    modulate.r=255
-	    modulate.g=0
-	    modulate.b=0
+		modulate.r=255
+		modulate.g=0
+		modulate.b=0
 	else :
-	    modulate.r=0
-	    modulate.g=255
-	    modulate.b=0
+		modulate.r=0
+		modulate.g=255
+		modulate.b=0
  
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
