@@ -14,14 +14,11 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
-
-
 func _on_Area_body_entered(body):
-	if body.name=="Player":
-		if a<3:
+	if body.name == "Player":
+		if a < 3:
 			$Area/MeshInstance.hide()
 			$AudioStreamPlayer.play()
-			$Area.hide();
-			get_node("../../TextureProgress/timebar").value+=1
+			$Area.hide()
 			$Area/CollisionShape.hide()
-			a=5;
+			a = 3
