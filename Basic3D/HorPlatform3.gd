@@ -1,7 +1,7 @@
 extends RigidBody
 
-export (float) var distanceZ = 17;
-export (float) var speed = 4;
+export (float) var distanceZ = 10;
+export (float) var speed = 6;
 
 var direction = 1;
 var positionOrigin; 

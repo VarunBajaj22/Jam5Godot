@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Main.gd" type="Script" id=1]
 [ext_resource path="res://Floor.tscn" type="PackedScene" id=2]
@@ -10,6 +10,13 @@
 [ext_resource path="res://pasi/cr4.gd" type="Script" id=8]
 [ext_resource path="res://pasi/cr5.gd" type="Script" id=9]
 [ext_resource path="res://key1111.obj" type="ArrayMesh" id=10]
+[ext_resource path="res://RigidBody.gd" type="Script" id=11]
+[ext_resource path="res://HorPlatform2.gd" type="Script" id=12]
+[ext_resource path="res://HorPlatform3.gd" type="Script" id=13]
+[ext_resource path="res://HorPlatform4.gd" type="Script" id=14]
+[ext_resource path="res://VertPlatform.gd" type="Script" id=15]
+[ext_resource path="res://VertPlatform2.gd" type="Script" id=16]
+[ext_resource path="res://VertPlatform3.gd" type="Script" id=17]
 
 [sub_resource type="GDScript" id=1]
 
@@ -145,13 +152,76 @@ proximity_fade_enable = false
 distance_fade_enable = false
 _sections_unfolded = [ "Albedo" ]
 
+[sub_resource type="SpatialMaterial" id=6]
+
+render_priority = 0
+flags_transparent = false
+flags_unshaded = false
+flags_vertex_lighting = false
+flags_no_depth_test = false
+flags_use_point_size = false
+flags_world_triplanar = false
+flags_fixed_size = false
+flags_albedo_tex_force_srgb = false
+vertex_color_use_as_albedo = false
+vertex_color_is_srgb = false
+params_diffuse_mode = 0
+params_specular_mode = 0
+params_blend_mode = 0
+params_cull_mode = 0
+params_depth_draw_mode = 0
+params_line_width = 1.0
+params_point_size = 1.0
+params_billboard_mode = 0
+params_grow = false
+params_use_alpha_scissor = false
+albedo_color = Color( 0.244399, 0.480469, 0.0487976, 1 )
+metallic = 0.0
+metallic_specular = 0.5
+metallic_texture_channel = 0
+roughness = 0.0
+roughness_texture_channel = 0
+emission_enabled = false
+normal_enabled = false
+rim_enabled = false
+clearcoat_enabled = false
+anisotropy_enabled = false
+ao_enabled = false
+depth_enabled = false
+subsurf_scatter_enabled = false
+transmission_enabled = false
+refraction_enabled = false
+detail_enabled = false
+uv1_scale = Vector3( 1, 1, 1 )
+uv1_offset = Vector3( 0, 0, 0 )
+uv1_triplanar = false
+uv1_triplanar_sharpness = 1.0
+uv2_scale = Vector3( 1, 1, 1 )
+uv2_offset = Vector3( 0, 0, 0 )
+uv2_triplanar = false
+uv2_triplanar_sharpness = 1.0
+proximity_fade_enable = false
+distance_fade_enable = false
+_sections_unfolded = [ "Albedo" ]
+
+[sub_resource type="CubeMesh" id=7]
+
+material = SubResource( 6 )
+size = Vector3( 2, 2, 2 )
+subdivide_width = 0
+subdivide_height = 0
+subdivide_depth = 0
+
+[sub_resource type="BoxShape" id=8]
+
+extents = Vector3( 1, 1, 1 )
+
 [node name="Main" type="Spatial" index="0"]
 
 script = ExtResource( 1 )
 
 [node name="Floor" parent="." index="0" instance=ExtResource( 2 )]
 
-editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Walls" parent="Floor" index="1" instance=ExtResource( 3 )]
@@ -364,41 +434,6 @@ _sections_unfolded = [ "Transform" ]
 transform = Transform( 0.5, 0, 0, 0, 1, 0, 0, 0, 1, -87.4691, 5.77375, -127.442 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="HorizontalMovingPlatform1" parent="Floor" index="42" instance=ExtResource( 2 )]
-
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -28.3293, 5.77375, -16.626 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="HorizontalMovingPlatform2" parent="Floor" index="43" instance=ExtResource( 2 )]
-
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -28.3293, 5.77375, -72.0687 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="VerticalMovingPlatform3" parent="Floor" index="44" instance=ExtResource( 2 )]
-
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -87.6576, 5.77375, -72.0687 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="HorizontalMovingPlatform3" parent="Floor" index="45" instance=ExtResource( 2 )]
-
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -28.3293, 5.77375, -110.3 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="HorizontalMovingPlatform4" parent="Floor" index="46" instance=ExtResource( 2 )]
-
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -87.6576, 5.77375, -110.3 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="VerticalMovingPlatform1" parent="Floor" index="47" instance=ExtResource( 2 )]
-
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -45.6188, 5.77375, -128.645 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="VerticalMovingPlatform2" parent="Floor" index="48" instance=ExtResource( 2 )]
-
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -59.5238, 5.77375, -128.645 )
-_sections_unfolded = [ "Transform" ]
-
 [node name="Player" parent="." index="1" instance=ExtResource( 7 )]
 
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 2, 2.186, 0 )
@@ -406,7 +441,7 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Camera" type="Camera" parent="Player" index="0"]
 
-transform = Transform( 3.01415e-08, -0.817768, 0.643593, -0.97518, -5.05521e-08, 0, 3.01415e-08, -0.817768, -0.643593, 2, 0.010091, -9 )
+transform = Transform( 3.01415e-08, -0.817768, 0.643593, -0.97518, -5.05521e-08, 0, 3.01415e-08, -0.817768, -0.643593, 4, 0.010091, -9 )
 keep_aspect = 1
 cull_mask = 1048575
 environment = null
@@ -3258,6 +3293,414 @@ autoplay = false
 mix_target = 0
 bus = "Master"
 _sections_unfolded = [ "Pause" ]
+
+[node name="HorPlatform1" type="RigidBody" parent="." index="46"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 5, -37 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = false
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
+linear_velocity = Vector3( 0, 0, 0 )
+linear_damp = -1.0
+angular_velocity = Vector3( 0, 0, 0 )
+angular_damp = -1.0
+script = ExtResource( 11 )
+distanceZ = 17
+speed = 4
+
+[node name="MeshInstance" type="MeshInstance" parent="HorPlatform1" index="0"]
+
+transform = Transform( 5, 0, 0, 0, 0.5, 0, 0, 0, 5, 0, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 7 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="HorPlatform1" index="1"]
+
+transform = Transform( 5, 0, 0, 0, 0.5, 0, 0, 0, 5, 0, 0, 0 )
+shape = SubResource( 8 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="HorPlatform2" type="RigidBody" parent="." index="47"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 5, -88 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = false
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
+linear_velocity = Vector3( 0, 0, 0 )
+linear_damp = -1.0
+angular_velocity = Vector3( 0, 0, 0 )
+angular_damp = -1.0
+script = ExtResource( 12 )
+distanceZ = 10
+speed = 4
+
+[node name="MeshInstance" type="MeshInstance" parent="HorPlatform2" index="0"]
+
+transform = Transform( 5, 0, 0, 0, 0.5, 0, 0, 0, 5, 0, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 7 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="HorPlatform2" index="1"]
+
+transform = Transform( 5, 0, 0, 0, 0.5, 0, 0, 0, 5, 0, 0, 0 )
+shape = SubResource( 8 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="HorPlatform3" type="RigidBody" parent="." index="48"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -29, 5, -112 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = false
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
+linear_velocity = Vector3( 0, 0, 0 )
+linear_damp = -1.0
+angular_velocity = Vector3( 0, 0, 0 )
+angular_damp = -1.0
+script = ExtResource( 13 )
+distanceZ = 10
+speed = 6
+
+[node name="MeshInstance" type="MeshInstance" parent="HorPlatform3" index="0"]
+
+transform = Transform( 5, 0, 0, 0, 0.5, 0, 0, 0, 5, 0, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 7 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="HorPlatform3" index="1"]
+
+transform = Transform( 5, 0, 0, 0, 0.5, 0, 0, 0, 5, 0, 0, 0 )
+shape = SubResource( 8 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="HorPlatform4" type="RigidBody" parent="." index="49"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 5, -111 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = false
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
+linear_velocity = Vector3( 0, 0, 0 )
+linear_damp = -1.0
+angular_velocity = Vector3( 0, 0, 0 )
+angular_damp = -1.0
+script = ExtResource( 14 )
+distanceZ = 25
+speed = 6
+
+[node name="MeshInstance" type="MeshInstance" parent="HorPlatform4" index="0"]
+
+transform = Transform( 5, 0, 0, 0, 0.5, 0, 0, 0, 5, 0, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 7 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="HorPlatform4" index="1"]
+
+transform = Transform( 5, 0, 0, 0, 0.5, 0, 0, 0, 5, 0, 0, 0 )
+shape = SubResource( 8 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="VertPlatform" type="RigidBody" parent="." index="50"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -45, 5, -129 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = false
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
+linear_velocity = Vector3( 0, 0, 0 )
+linear_damp = -1.0
+angular_velocity = Vector3( 0, 0, 0 )
+angular_damp = -1.0
+script = ExtResource( 15 )
+distanceY = 10
+speed = 4
+
+[node name="MeshInstance" type="MeshInstance" parent="VertPlatform" index="0"]
+
+transform = Transform( 5, 0, 0, 0, 0.5, 0, 0, 0, 5, 0, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 7 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="VertPlatform" index="1"]
+
+transform = Transform( 5, 0, 0, 0, 0.5, 0, 0, 0, 5, 0, 0, 0 )
+shape = SubResource( 8 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="VertPlatform2" type="RigidBody" parent="." index="51"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -60, 5, -129 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = false
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
+linear_velocity = Vector3( 0, 0, 0 )
+linear_damp = -1.0
+angular_velocity = Vector3( 0, 0, 0 )
+angular_damp = -1.0
+script = ExtResource( 16 )
+distanceY = 12
+speed = 6
+
+[node name="MeshInstance" type="MeshInstance" parent="VertPlatform2" index="0"]
+
+transform = Transform( 5, 0, 0, 0, 0.5, 0, 0, 0, 5, 0, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 7 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="VertPlatform2" index="1"]
+
+transform = Transform( 5, 0, 0, 0, 0.5, 0, 0, 0, 5, 0, 0, 0 )
+shape = SubResource( 8 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="VertPlatform3" type="RigidBody" parent="." index="52"]
+
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -88, 5, -72 )
+input_ray_pickable = true
+input_capture_on_drag = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 0.0
+custom_integrator = false
+continuous_cd = false
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+axis_lock_linear_x = false
+axis_lock_linear_y = false
+axis_lock_linear_z = false
+axis_lock_angular_x = false
+axis_lock_angular_y = false
+axis_lock_angular_z = false
+linear_velocity = Vector3( 0, 0, 0 )
+linear_damp = -1.0
+angular_velocity = Vector3( 0, 0, 0 )
+angular_damp = -1.0
+script = ExtResource( 17 )
+distanceY = 25
+speed = 6
+
+[node name="MeshInstance" type="MeshInstance" parent="VertPlatform3" index="0"]
+
+transform = Transform( 5, 0, 0, 0, 0.5, 0, 0, 0, 5, 0, 0, 0 )
+layers = 1
+material_override = null
+cast_shadow = 1
+extra_cull_margin = 0.0
+use_in_baked_light = false
+lod_min_distance = 0.0
+lod_min_hysteresis = 0.0
+lod_max_distance = 0.0
+lod_max_hysteresis = 0.0
+mesh = SubResource( 7 )
+skeleton = NodePath("..")
+material/0 = null
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape" type="CollisionShape" parent="VertPlatform3" index="1"]
+
+transform = Transform( 5, 0, 0, 0, 0.5, 0, 0, 0, 5, 0, 0, 0 )
+shape = SubResource( 8 )
+disabled = false
+_sections_unfolded = [ "Transform" ]
+
+[node name="Camera" type="Camera" parent="." index="53"]
+
+transform = Transform( -4.37114e-08, -0.996195, -0.0871558, 0, -0.0871558, 0.996195, -1, 4.35451e-08, 3.8097e-09, -45, 66, -54 )
+keep_aspect = 1
+cull_mask = 1048575
+environment = null
+h_offset = 0.0
+v_offset = 0.0
+doppler_tracking = 0
+projection = 0
+current = false
+fov = 70.0
+size = 1.0
+near = 0.05
+far = 100.0
 
 [connection signal="area_entered" from="Spatial3/Area" to="Spatial3" method="_on_Area_area_entered"]
 

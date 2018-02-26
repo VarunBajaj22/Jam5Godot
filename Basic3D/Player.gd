@@ -61,12 +61,6 @@ func _physics_process(delta):
 	velocity = move_and_slide(velocity, Vector3(0,1,0))
 	
 	if is_on_floor() and Input.is_key_pressed(KEY_SPACE):
-		velocity.y = 30
-		
-	var hitCount = get_slide_count()
-	if hitCount > 0:
-		var collision = get_slide_collision(0)
-		if collision.collider is RigidBody:
-			collision.collider.apply_impulse(collision.position, -collision.normal)
-	
+		velocity.y = 10
+
  
