@@ -37,4 +37,7 @@ func _physics_process(delta):
 	
 	if is_on_floor() and Input.is_key_pressed(KEY_SPACE):
 		velocity.y=10
+		
+	#if get_collider(collider) == RigidBody:
+	#	velocity = collider.speed;
 

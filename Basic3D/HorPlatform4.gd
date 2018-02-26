@@ -1,7 +1,7 @@
 extends RigidBody
 
-export (float) var distanceZ = 10;
-export (float) var speed = 4;
+export (float) var distanceZ = 25;
+export (float) var speed = 6;
 
 var direction = 1;
 var positionOrigin; 
@@ -23,4 +23,4 @@ func _process(delta):
 		direction = 1; 
 			
 	self.global_transform.origin.z = newZ ; 
- 
+	

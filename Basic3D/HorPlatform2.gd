@@ -23,4 +23,4 @@ func _process(delta):
 		direction = 1; 
 			
 	self.global_transform.origin.z = newZ ; 
- 
+	
