@@ -2,16 +2,15 @@ extends Spatial
 
 var player_id
 var bullet
-# values for direction: 1 = +x, 2 = -x, 3 = +z, 4 = -z
-export var bulletDirection = 1
+# values for direction: 0 = +x, 1 = -x, 2 = +z, 3 = -z
+export var bulletDirection = 0
 
 func _ready():
 	# finds and stores the player id to later test for collision-based physics
 	var player = find_node_by_name(get_tree().get_root(), "Player")
 	player_id = player.get_instance_id()
-	if(player_id): print("Player id: ", player_id)
 	bullet = get_node("Bullet")
-	print("Bullet", bullet)
+	bullet.passPlayer(player_id)
 
 #func _process(delta):
 #	# Called every frame. Delta is time since last frame.
@@ -19,9 +18,7 @@ func _ready():
 #	pass
 
 func fire( body, nodeName, bulletName ):
-	print("Firing")
-	var area = find_node_by_name(get_tree().get_root(), nodeName)
-	bullet.passVelocity(bulletDirection)
+	bullet.passDirection(bulletDirection)
 
 func _on_Area_body_entered( body ):
 	var meta = body.get_instance_id()

@@ -39,3 +39,5 @@ func _physics_process(delta):
 	#if get_collider(collider) == RigidBody:
 	#	velocity = collider.speed;
 
+func hit():
+	get_tree().reload_current_scene()
