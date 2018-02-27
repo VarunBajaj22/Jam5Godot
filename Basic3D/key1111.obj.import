@@ -9,7 +9,7 @@ path="res://.import/key1111.obj-31c2de26e3bbc16506ade4111866a417.mesh"
 files=[ "res://.import/key1111.obj-31c2de26e3bbc16506ade4111866a417.mesh" ]
 
 source_file="res://key1111.obj"
-source_md5="8028665d70b6d2e1e18ca17b666d5517"
+source_md5="2a95f88f04fb2532d1672c115b79824c"
 
 dest_files=[ "res://.import/key1111.obj-31c2de26e3bbc16506ade4111866a417.mesh", "res://.import/key1111.obj-31c2de26e3bbc16506ade4111866a417.mesh" ]
 dest_md5="9f6c3775a0398765d69aa094ede89a68"
@@ -17,4 +17,3 @@ dest_md5="9f6c3775a0398765d69aa094ede89a68"
 [params]
 
 generate_tangents=true
-scale_mesh=Vector3( 1, 1, 1 )

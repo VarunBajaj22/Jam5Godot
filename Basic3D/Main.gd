@@ -8,8 +8,10 @@ var player_id
 
 func _ready():
 	# finds and stores the player id to later test for collision-based physics
-	var player = find_node_by_name(get_tree().get_root(), "Player")
-	player_id = player.get_instance_id()
+	#var player = find_node_by_name(get_tree().get_root(), "Player")
+	player_id = get_node("Player").get_instance_id()
+	print(player_id)
+	$Panel.hide()
 
 
 func _process(delta):
@@ -29,7 +31,9 @@ func find_node_by_name(root, name):
 	return null
 
 func _on_Area_body_entered( body ):
+	var player = get_node("Player")
 	var meta = body.get_instance_id()
 	if (meta == player_id):
-		if(get_node("Player").keys >= 2):
+		if(player.keys >= 2):
 			print("You win!")
+			$Panel.show()
