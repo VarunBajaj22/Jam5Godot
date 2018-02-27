@@ -1,7 +1,7 @@
 extends KinematicBody
 
 # values for direction: 0 = +x, 1 = -x, 2 = +z, 3 = -z
-var direction = 0
+var direction = -1
 var velocity = 15
 var positionOrigin
 var playerObj
@@ -14,7 +14,7 @@ func _ready():
 
 func _process(delta):
 	# updates position as long as the direction values are correct
-	if(direction > 0 && direction < 5):
+	if(direction > -1 && direction < 5):
 		var newPos = 0
 		var dir = 1
 		

@@ -16,18 +16,7 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		get_tree().reload_current_scene()
-
-func fire( body, nodeName, bulletName ):
-	print("Firing")
-	var bullet = find_node_by_name(get_tree().get_root(), bulletName)
-	var area = find_node_by_name(get_tree().get_root(), nodeName)
-	#bullet.apply_impulse()
-
-func _on_Area2_body_entered( body ):
-	var meta = body.get_instance_id()
-	if meta == player_id:
-		fire( body, "Area2", "Bullet2" )
-
+		
 # returns the first node found the the root and the name of the node
 func find_node_by_name(root, name):
 	if(root.get_name() == name): return root
@@ -39,3 +28,8 @@ func find_node_by_name(root, name):
 		
 		if found : return found
 	return null
+
+func _on_Area_body_entered( body ):
+	var meta = body.get_instance_id()
+	if (meta == player_id):
+		print("You win!")

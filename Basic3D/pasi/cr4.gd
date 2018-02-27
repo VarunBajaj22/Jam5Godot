@@ -21,4 +21,5 @@ func _on_Area_body_entered(body):
 			$AudioStreamPlayer.play()
 			$Area.hide()
 			$Area/CollisionShape.hide()
+			get_node("../../TextureProgress/timebar").value+=1
 			a = 3

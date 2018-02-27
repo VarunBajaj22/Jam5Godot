@@ -17,13 +17,13 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
-func fire( body, nodeName, bulletName ):
+func fire():
 	bullet.passDirection(bulletDirection)
 
 func _on_Area_body_entered( body ):
 	var meta = body.get_instance_id()
 	if meta == player_id:
-		fire( body, "Area2", "Bullet2" )
+		fire()
 		
 
 # returns the first node found the the root and the name of the node
@@ -37,3 +37,6 @@ func find_node_by_name(root, name):
 		
 		if found : return found
 	return null
+
+func _on_Area2_body_entered( body ):
+	_on_Area_body_entered( body )

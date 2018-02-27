@@ -1,4 +1,10 @@
-extends RigidBody
+extends Spatial
+
+# class member variables go here, for example:
+# var a = 2
+# var b = "textvar"
+var velocityplatform
+var flag=0
 
 export (float) var distanceZ = 10;
 export (float) var speed = 6;
@@ -22,6 +28,7 @@ func _process(delta):
 		
 	if(newZ <= positionOrigin.z):
 		direction = 1; 
-			
 	self.global_transform.origin.z = newZ ; 
+	
+
  
