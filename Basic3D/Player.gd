@@ -4,6 +4,8 @@ var speed=600
 var direction=Vector3()
 var gravity = -9.8
 var velocity = Vector3()
+var keys = 0
+
 func _ready():
 	add_to_group("Player", true);
 
@@ -41,6 +43,9 @@ func _physics_process(delta):
 
 func hit():
 	get_tree().reload_current_scene()
+
+func getKey():
+	keys = keys + 1
 
 #extends KinematicBody
 #

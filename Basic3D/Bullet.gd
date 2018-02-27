@@ -10,7 +10,6 @@ var player_id
 func _ready():
 	positionOrigin = global_transform.origin;
 	playerObj = get_node("../../../Player")
-	print(playerObj)
 
 func _process(delta):
 	# updates position as long as the direction values are correct
@@ -44,7 +43,7 @@ func _process(delta):
 		
 		# If the bullet has travelled a distance of 10, reset the position
 		if (abs(positionOrigin.distance_to(self.global_transform.origin)) > 10):
-			passDirection(0)
+			passDirection(-1)
 
 func passPlayer(play):
 	player_id = play

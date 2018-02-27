@@ -2,6 +2,7 @@ extends Spatial
 
 # class member variables go here, for example:
 var a = 2
+export var key = false
 # var b = "textvar"
 
 func _ready():
@@ -21,5 +22,8 @@ func _on_Area_body_entered(body):
 			$AudioStreamPlayer.play()
 			$Area.hide()
 			$Area/CollisionShape.hide()
-			get_node("../../TextureProgress/timebar").value+=1
+			get_node("../../../TextureProgress/timebar").value+=1
 			a = 3
+		if (key == true):
+			print("Got key!")
+			get_node("../../../Player").getKey()

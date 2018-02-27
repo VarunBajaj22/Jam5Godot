@@ -16,5 +16,5 @@ func _ready():
 
 
 func _on_Area_body_entered( body ):
-	if (body == get_node("../Player")):
+	if (body == get_node("../../Player")):
 		get_tree().reload_current_scene()

@@ -10,7 +10,7 @@ func _ready():
 	pass
 
 func _process(delta):
-	value=value-delta*2
+	value=value-(delta*2)
 	if value < 30 :
 		modulate.r=255
 		modulate.g=0
@@ -20,8 +20,7 @@ func _process(delta):
 		modulate.g=255
 		modulate.b=0
 	if value <= 0:
-	     
-	    get_tree().reload_current_scene()
+		get_tree().reload_current_scene()
 #	# Called every frame. Delta is time since last frame.
 #	# Update game logic here.
 #	pass
